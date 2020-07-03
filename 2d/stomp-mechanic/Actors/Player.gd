@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_count():
 		var collision := get_slide_collision(i)
 		var collider := get_slide_collision(i).collider
-		var is_stomping := collider is Enemy and collision.normal == Vector2.UP and is_on_floor()
+		var is_stomping := collider is Enemy and collision.normal.is_equal_approx(Vector2.UP) and is_on_floor()
 		if is_stomping:
 			_velocity.y = -stomp_impulse
 			(collider as Enemy).kill()
