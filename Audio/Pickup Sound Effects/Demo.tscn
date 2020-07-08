@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Coin/Coin.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Background/Demo2DBackground.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_strength = 0.8
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[node name="Demo" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Coin" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, 320 )
+
+[node name="Coin2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 384, 320 )
+
+[node name="Coin3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, 320 )
+
+[node name="Coin4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 640, 320 )
+
+[node name="Coin5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 768, 320 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
