@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/Juhani Junkala [Retro Game Music Pack] Level 1.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Levels/Juhani Junkala [Retro Game Music Pack] Level 2.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Screens/BackgroundMusic.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Crossfade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Track:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Track2:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Track:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+
+[node name="BackgroundMusic" type="Node"]
+script = ExtResource( 3 )
+
+[node name="Track" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+
+[node name="Track2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -80.0
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "FadeIn"
+anims/Crossfade = SubResource( 1 )
+anims/FadeIn = SubResource( 2 )
