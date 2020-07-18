@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Screens/BackgroundMusic/Juhani Junkala [Retro Game Music Pack] Ending.ogg" type="AudioStream" id=1]
+
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+autoplay = true
+bus = "BGM"

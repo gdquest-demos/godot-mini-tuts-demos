@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Interface/VolumeSlider.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxLine" id=1]
+color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id=2]
+color = Color( 0.470588, 0.490196, 1, 1 )
+thickness = 4
+
+[sub_resource type="StyleBoxLine" id=3]
+color = Color( 1, 1, 1, 1 )
+thickness = 4
+
+[node name="VolumeSlider" type="HSlider"]
+margin_right = 176.0
+margin_bottom = 16.0
+custom_styles/slider = SubResource( 1 )
+custom_styles/grabber_area_highlight = SubResource( 2 )
+custom_styles/grabber_area = SubResource( 3 )
+max_value = 1.0
+step = 0.05
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_exited" from="." to="." method="release_focus"]
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]
