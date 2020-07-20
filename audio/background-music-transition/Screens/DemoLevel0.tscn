@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Interface/level_title_font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Levels/Level0.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Interface/SceneChangeButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/juhani-junkala-level-1.ogg" type="AudioStream" id=4]
 
 [node name="Demo" type="Node"]
 
 [node name="World" type="CanvasLayer" parent="."]
 
 [node name="Level" parent="World" instance=ExtResource( 2 )]
+music = ExtResource( 4 )
 
 [node name="Interface" type="CanvasLayer" parent="."]
 
