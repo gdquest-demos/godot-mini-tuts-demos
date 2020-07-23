@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Interface/button_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Interface/SceneButton.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.341017, 0.3002, 0.79, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0823529, 0.109804, 0.423529, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.236885, 0.2183, 0.59, 1 )
+
+[node name="SceneButton" type="Button"]
+anchor_left = 0.75
+anchor_top = 0.427
+anchor_right = 0.969
+anchor_bottom = 0.533
+margin_left = -768.0
+margin_top = -256.2
+margin_right = -768.256
+margin_bottom = -255.8
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "Next"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

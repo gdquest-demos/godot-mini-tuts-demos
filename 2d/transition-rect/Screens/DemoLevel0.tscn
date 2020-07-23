@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Interface/level_title_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Levels/Level0.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Interface/SceneButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Screens/ScreenTransitionRect.tscn" type="PackedScene" id=5]
+
+[node name="Demo" type="Node"]
+
+[node name="World" type="CanvasLayer" parent="."]
+
+[node name="Level" parent="World" instance=ExtResource( 2 )]
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Interface"]
+anchor_right = 1.0
+margin_left = 64.0
+margin_top = 32.0
+margin_right = -64.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 1 )
+text = "Level 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SceneButton" parent="Interface" instance=ExtResource( 4 )]
+anchor_left = 0.719
+anchor_right = 0.937
+margin_left = -0.256042
+margin_top = -0.199982
+margin_right = 0.511963
+margin_bottom = 0.199982
+text = "Next Scene"
+scene_path = "res://Screens/DemoLevel1.tscn"
+
+[node name="ScreenTransitionRect" parent="Interface" instance=ExtResource( 5 )]
+next_scene_path = "res://Screens/DemoLevel1.tscn"
+[connection signal="scene_prompted" from="Interface/SceneButton" to="Interface/ScreenTransitionRect" method="transit"]
