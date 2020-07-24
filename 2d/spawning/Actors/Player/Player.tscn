@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Actors/Player/topdown-player.svg" type="Texture" id=1]
+[ext_resource path="res://Objects/Spawner/Spawner2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Bullet/Bullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Actors/Player/Player.gd" type="Script" id=4]
+
+[node name="Player" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="BulletSpawner2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 48, 0 )
+spawn_scene = ExtResource( 3 )

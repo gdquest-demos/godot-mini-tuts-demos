@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Bullet/projectile-player.svg" type="Texture" id=1]
+[ext_resource path="res://Objects/Bullet/Bullet.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 16.0
+height = 47.9999
+
+[node name="Bullet" type="Sprite"]
+modulate = Color( 1.2, 1.2, 1.2, 1 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+speed = 2500
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+scale = Vector2( 4, 2.4 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.57079
+shape = SubResource( 1 )
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
