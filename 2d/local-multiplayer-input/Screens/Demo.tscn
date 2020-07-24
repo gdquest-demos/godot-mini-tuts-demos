@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Levels/Level.tscn" type="PackedScene" id=2]
+
+[node name="Demo" type="Node"]
+
+[node name="Level" parent="." instance=ExtResource( 2 )]
