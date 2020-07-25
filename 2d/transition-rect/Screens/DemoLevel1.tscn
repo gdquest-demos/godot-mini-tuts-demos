@@ -51,5 +51,5 @@ scene_path = "res://Screens/DemoLevel2.tscn"
 
 [node name="ScreenTransitionRect" parent="Interface" instance=ExtResource( 2 )]
 next_scene_path = "res://Screens/DemoLevel0.tscn"
-[connection signal="scene_prompted" from="Interface/SceneButton" to="Interface/ScreenTransitionRect" method="transit"]
-[connection signal="scene_prompted" from="Interface/SceneButton2" to="Interface/ScreenTransitionRect" method="transit"]
+[connection signal="scene_prompted" from="Interface/SceneButton" to="Interface/ScreenTransitionRect" method="transition_to"]
+[connection signal="scene_prompted" from="Interface/SceneButton2" to="Interface/ScreenTransitionRect" method="transition_to"]
