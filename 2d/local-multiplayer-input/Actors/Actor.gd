@@ -1,4 +1,5 @@
 extends Sprite
+class_name Actor
 
 
 export var speed := 600.0
