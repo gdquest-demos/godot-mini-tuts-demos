@@ -1,7 +1,6 @@
 extends Button
 
-
-export(String, FILE, "*.tscn") var next_scene: String
+export (String, FILE, "*.tscn") var next_scene: String
 
 
 func _pressed() -> void:

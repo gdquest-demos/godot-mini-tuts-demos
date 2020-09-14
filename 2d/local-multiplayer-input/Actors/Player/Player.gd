@@ -1,6 +1,5 @@
 extends Actor
 
-
 export var move_right_action := "move_right"
 export var move_left_action := "move_left"
 export var move_down_action := "move_down"
@@ -13,5 +12,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func update_actor_direction() -> void:
-	direction.x = Input.get_action_strength(move_right_action) - Input.get_action_strength(move_left_action)
-	direction.y = Input.get_action_strength(move_down_action) - Input.get_action_strength(move_up_action)
+	direction.x = (
+		Input.get_action_strength(move_right_action)
+		- Input.get_action_strength(move_left_action)
+	)
+	direction.y = (
+		Input.get_action_strength(move_down_action)
+		- Input.get_action_strength(move_up_action)
+	)

@@ -1,6 +1,5 @@
 extends Sprite
 
-
 export var speed := 600
 export var direction := Vector2.RIGHT
 

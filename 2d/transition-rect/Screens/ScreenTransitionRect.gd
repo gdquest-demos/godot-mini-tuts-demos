@@ -1,8 +1,9 @@
 extends ColorRect
 
-export(String, FILE, "*.tscn") var next_scene_path
+export (String, FILE, "*.tscn") var next_scene_path
 
 onready var _anim_player := $AnimationPlayer
+
 
 func _ready() -> void:
 	_anim_player.play_backwards("Fade")

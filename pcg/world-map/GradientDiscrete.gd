@@ -2,7 +2,6 @@
 tool
 extends VBoxContainer
 
-
 export var texture: Texture = DiscreteTexture.new()
 
 onready var discrete: TextureRect = $Discrete

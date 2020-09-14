@@ -1,7 +1,6 @@
 extends Node2D
 class_name Coin
 
-
 onready var animation_player := $AnimationPlayer
 onready var sprite := $Sprite
 

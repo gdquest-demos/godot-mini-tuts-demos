@@ -1,7 +1,7 @@
 extends Position2D
 
-
 export var spawn_scene: PackedScene
+
 
 func spawn(_spawn_scene := spawn_scene) -> void:
 	var spawn := _spawn_scene.instance() as Node2D
