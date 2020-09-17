@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Sprites/azagaya_n.png" type="Texture" id=1]
+[ext_resource path="res://Material/NormalMap.shader" type="Shader" id=2]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/normal_map = ExtResource( 1 )

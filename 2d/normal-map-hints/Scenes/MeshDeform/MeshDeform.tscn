@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Light.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Sprites/azagaya.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/azagaya_n.png" type="Texture" id=3]
+[ext_resource path="res://Material/NormalMap.shader" type="Shader" id=4]
+[ext_resource path="res://Scenes/Background.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/Font.tres" type="DynamicFont" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/normal_map = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Polygon2D/Skeleton2D/Bone2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 140.961, 198.108 ), Vector2( 133.333, 198.108 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Polygon2D/Skeleton2D/Bone2D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 8.47714, 21.438 ]
+}
+
+[node name="MeshDeform" type="Node2D"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+material = SubResource( 1 )
+position = Vector2( 385.797, 166.311 )
+texture = ExtResource( 2 )
+skeleton = NodePath("Skeleton2D")
+polygon = PoolVector2Array( 209, 233, 121, 217, 98, 175, 45, 167, 20, 100, 48, 17, 125, 1, 201, 41, 215, 101, 223, 128, 210, 145, 206.969, 164.111, 194.774, 169.338, 160.627, 174.216, 143.554, 173.171, 160.976, 175.61, 199.303, 170.383, 214.286, 168.293, 219.164, 190.592, 231.359, 211.847, 231.01, 228.92 )
+uv = PoolVector2Array( 209, 233, 121, 217, 98, 175, 45, 167, 20, 100, 48, 17, 125, 1, 201, 41, 215, 101, 223, 128, 210, 145, 206.969, 164.111, 194.774, 169.338, 160.627, 174.216, 143.554, 173.171, 160.976, 175.61, 199.303, 170.383, 214.286, 168.293, 219.164, 190.592, 231.359, 211.847, 231.01, 228.92 )
+polygons = [ PoolIntArray( 14, 1, 0, 20, 19, 18, 17, 16, 15 ), PoolIntArray( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ) ]
+bones = [ NodePath("Bone2D"), PoolRealArray( 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ) ]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Polygon2D"]
+
+[node name="Bone2D" type="Bone2D" parent="Polygon2D/Skeleton2D"]
+position = Vector2( 134.915, 198.108 )
+rotation = 0.327249
+scale = Vector2( 3.64, 1 )
+rest = Transform2D( 3.60663, 0.491789, -0.135107, 0.990831, 140.961, 198.108 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.341176, 0.309804, 0.309804, 1 )
+
+[node name="Light2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 659.713, 234.154 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Jaw"
+anims/Jaw = SubResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 398.4
+margin_top = 420.8
+margin_right = 637.4
+margin_bottom = 485.8
+custom_fonts/font = ExtResource( 6 )
+text = "Mesh Deform With
+Normal Map"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
