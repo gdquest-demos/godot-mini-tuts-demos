@@ -6,7 +6,6 @@
 [ext_resource path="res://Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Resources/Font.tres" type="DynamicFont" id=5]
 
-
 [sub_resource type="TileSet" id=1]
 0/name = "tile.png 0"
 0/texture = ExtResource( 1 )
@@ -305,11 +304,11 @@ __meta__ = {
 }
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( -91.228, 118.311 )
+position = Vector2( -84.4932, 68.9227 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 128, 128 )
 format = 1
-tile_data = PoolIntArray( 65538, 0, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 2, 0, 131073, 6, 0, 131074, 3, 0, 131075, 9, 0, 131076, 10, 0, 131077, 11, 0, 131078, 5, 0, 131079, 7, 0, 196609, 15, 0, 196610, 10, 0, 196611, 14, 0, 196613, 13, 0, 196614, 10, 0, 196615, 14, 0 )
+tile_data = PoolIntArray( 65538, 0, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 2, 0, 131073, 6, 0, 131074, 3, 0, 131075, 9, 0, 131076, 10, 0, 131077, 11, 0, 131078, 5, 0, 131079, 7, 0, 196609, 13, 0, 196610, 10, 0, 196611, 14, 0, 196613, 15, 0, 196614, 10, 0, 196615, 16, 0 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.231373, 0.227451, 0.227451, 1 )
