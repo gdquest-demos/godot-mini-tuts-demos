@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Light.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sprites/spritesheet_n.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Material/NormalMap.shader" type="Shader" id=4]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Resources/Font.tres" type="DynamicFont" id=6]
-
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -76,7 +75,70 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 258, 258 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 258, 0, 258, 258 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 516, 0, 258, 258 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 774, 0, 258, 258 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1032, 0, 258, 258 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1290, 0, 258, 258 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1548, 0, 258, 258 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1806, 0, 258, 258 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 2064, 0, 258, 258 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 2322, 0, 258, 258 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 2580, 0, 258, 258 )
+
+[sub_resource type="SpriteFrames" id=25]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="Animation" id=26]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -97,7 +159,7 @@ tracks/0/keys = {
 [node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 481.731, 270 )
+position = Vector2( 498.977, 270 )
 texture = ExtResource( 3 )
 normal_map = ExtResource( 2 )
 hframes = 11
@@ -118,9 +180,9 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 1 )
-position = Vector2( 785.99, 270 )
+position = Vector2( 796.069, 270 )
 frames = SubResource( 13 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="Label" type="Label" parent="AnimatedSprite"]
@@ -137,9 +199,9 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
-position = Vector2( 198.172, 270 )
-frames = SubResource( 13 )
-frame = 3
+position = Vector2( 217.578, 270 )
+frames = SubResource( 25 )
+frame = 5
 playing = true
 
 [node name="Label" type="Label" parent="AnimatedSprite2"]
@@ -157,10 +219,10 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/Idle = SubResource( 14 )
+anims/Idle = SubResource( 26 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.352941, 0.352941, 0.352941, 1 )
 
 [node name="Light2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 474.448, 150.619 )
+position = Vector2( 604.22, 148.099 )

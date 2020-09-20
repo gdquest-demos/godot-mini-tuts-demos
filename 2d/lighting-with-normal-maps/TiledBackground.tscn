@@ -24,6 +24,7 @@ region_rect = Rect2( 0, 0, 1024, 600 )
 color = Color( 0.258824, 0.25098, 0.25098, 1 )
 
 [node name="Light2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 310.445, 156.734 )
 range_height = 101.2
 
 [node name="Label" type="Label" parent="."]

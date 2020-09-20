@@ -7,7 +7,6 @@
 [ext_resource path="res://Background.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Resources/Font.tres" type="DynamicFont" id=6]
 
-
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 4 )
@@ -57,8 +56,8 @@ bones = [ NodePath("Bone2D"), PoolRealArray( 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0
 [node name="Skeleton2D" type="Skeleton2D" parent="Polygon2D"]
 
 [node name="Bone2D" type="Bone2D" parent="Polygon2D/Skeleton2D"]
-position = Vector2( 134.915, 198.108 )
-rotation = 0.327249
+position = Vector2( 140.682, 198.108 )
+rotation = 0.156219
 scale = Vector2( 3.64, 1 )
 rest = Transform2D( 3.60663, 0.491789, -0.135107, 0.990831, 140.961, 198.108 )
 

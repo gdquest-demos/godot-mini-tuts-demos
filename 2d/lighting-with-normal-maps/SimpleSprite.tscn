@@ -16,7 +16,7 @@ texture = ExtResource( 4 )
 normal_map = ExtResource( 3 )
 
 [node name="Light2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 642.497, 204.199 )
+position = Vector2( 657.157, 206.995 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.34902, 0.34902, 0.34902, 1 )

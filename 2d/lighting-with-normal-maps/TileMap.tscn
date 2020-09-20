@@ -314,4 +314,4 @@ tile_data = PoolIntArray( 65538, 0, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65
 color = Color( 0.231373, 0.227451, 0.227451, 1 )
 
 [node name="Light2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 266.27, 118.338 )
+position = Vector2( 240.814, 84.3969 )
