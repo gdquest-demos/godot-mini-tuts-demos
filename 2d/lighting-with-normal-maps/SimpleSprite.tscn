@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Light.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sprites/azagaya_n.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/azagaya.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Font.tres" type="DynamicFont" id=5]
+
+[node name="SimpleSprite" type="Node2D"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 2 )]
+
+[node name="azagaya" type="Sprite" parent="."]
+position = Vector2( 491.072, 286.759 )
+texture = ExtResource( 4 )
+normal_map = ExtResource( 3 )
+
+[node name="Light2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 657.157, 206.995 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.34902, 0.34902, 0.34902, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 306.947
+margin_top = 411.397
+margin_right = 703.947
+margin_bottom = 442.397
+custom_fonts/font = ExtResource( 5 )
+text = "Simple Sprite With Normal Map"
+__meta__ = {
+"_edit_use_anchors_": false
+}

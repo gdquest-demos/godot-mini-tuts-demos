@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Sprites/LightSprite.png" type="Texture" id=1]
+[ext_resource path="res://Light.gd" type="Script" id=2]
+
+[node name="Light2D" type="Light2D"]
+position = Vector2( 260.048, 78.6191 )
+texture = ExtResource( 1 )
+texture_scale = 2.0
+color = Color( 0.992157, 1, 0.8, 1 )
+range_height = 60.0
+script = ExtResource( 2 )
+
+[node name="LightSprite" type="Sprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 1 )
