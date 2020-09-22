@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Assets/top-down.png" type="Texture" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/enemy.png" type="Texture" id=3]
+[ext_resource path="res://Assets/background.png" type="Texture" id=4]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 28, 64, 28, 28, 64, 28, 64, 0, 0, 0, 0, 64 )
@@ -258,4 +259,15 @@ position = Vector2( 304.52, 69.9307 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
-[editable path="Player"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 0.388235, 0.388235, 0.388235, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
