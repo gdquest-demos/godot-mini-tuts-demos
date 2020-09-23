@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/top-down.png-4ac101055258f0300e0151de6668acac.stex"
+path="res://.import/enemy.png-41fe8dc360e641bde1ffa5e18678b763.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/top-down.png"
-dest_files=[ "res://.import/top-down.png-4ac101055258f0300e0151de6668acac.stex" ]
+source_file="res://Sprites/enemy.png"
+dest_files=[ "res://.import/enemy.png-41fe8dc360e641bde1ffa5e18678b763.stex" ]
 
 [params]
 

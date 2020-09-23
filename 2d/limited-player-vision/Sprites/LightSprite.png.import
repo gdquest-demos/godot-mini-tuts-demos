@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LightSprite.png-d65d7daf5009c362d6203945bfaa4775.stex"
+path="res://.import/LightSprite.png-9d73934d9ee565af3b6d09b58b580f22.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/LightSprite.png"
-dest_files=[ "res://.import/LightSprite.png-d65d7daf5009c362d6203945bfaa4775.stex" ]
+source_file="res://Sprites/LightSprite.png"
+dest_files=[ "res://.import/LightSprite.png-9d73934d9ee565af3b6d09b58b580f22.stex" ]
 
 [params]
 
