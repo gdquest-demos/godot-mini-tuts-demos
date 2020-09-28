@@ -1,0 +1,151 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CharacterCustomizer.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.235294, 0.639216, 0.439216, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.196078, 0.160784, 0.278431, 1 )
+
+[node name="CharacterCustomizer" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 0.793701
+margin_bottom = 0.793701
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -5.0
+margin_top = -7.0
+margin_right = 230.0
+margin_bottom = 407.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -193.0
+margin_right = 108.0
+margin_bottom = 193.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HatLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_right = 216.0
+margin_bottom = 14.0
+text = "Hats"
+align = 1
+valign = 1
+
+[node name="HBoxContainerHat" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 18.0
+margin_right = 216.0
+margin_bottom = 118.0
+
+[node name="ButtonPrevHat" type="Button" parent="Panel/VBoxContainer/HBoxContainerHat"]
+margin_right = 20.0
+margin_bottom = 100.0
+text = "<"
+
+[node name="Hat" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainerHat"]
+margin_left = 24.0
+margin_right = 192.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 168, 100 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonNextHat" type="Button" parent="Panel/VBoxContainer/HBoxContainerHat"]
+margin_left = 196.0
+margin_right = 216.0
+margin_bottom = 100.0
+text = ">"
+
+[node name="GlassesLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 122.0
+margin_right = 216.0
+margin_bottom = 136.0
+text = "Sun Glasses"
+align = 1
+valign = 1
+
+[node name="HBoxContainerGlasses" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 140.0
+margin_right = 216.0
+margin_bottom = 240.0
+
+[node name="ButtonPrevGlasses" type="Button" parent="Panel/VBoxContainer/HBoxContainerGlasses"]
+margin_right = 20.0
+margin_bottom = 100.0
+text = "<"
+
+[node name="Glasses" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainerGlasses"]
+margin_left = 24.0
+margin_right = 192.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 168, 100 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonNextGlasses" type="Button" parent="Panel/VBoxContainer/HBoxContainerGlasses"]
+margin_left = 196.0
+margin_right = 216.0
+margin_bottom = 100.0
+text = ">"
+
+[node name="HeadLabel" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 244.0
+margin_right = 216.0
+margin_bottom = 258.0
+text = "Head"
+align = 1
+valign = 1
+
+[node name="HBoxContainerHead" type="HBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 262.0
+margin_right = 216.0
+margin_bottom = 362.0
+
+[node name="ButtonPrevHead" type="Button" parent="Panel/VBoxContainer/HBoxContainerHead"]
+margin_right = 20.0
+margin_bottom = 100.0
+text = "<"
+
+[node name="Head" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainerHead"]
+margin_left = 24.0
+margin_right = 192.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 168, 100 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonNextHead" type="Button" parent="Panel/VBoxContainer/HBoxContainerHead"]
+margin_left = 196.0
+margin_right = 216.0
+margin_bottom = 100.0
+text = ">"
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainerHat/ButtonPrevHat" to="." method="update_hat" binds= [ -1 ]]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainerHat/ButtonNextHat" to="." method="update_hat" binds= [ 1 ]]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainerGlasses/ButtonPrevGlasses" to="." method="update_glasses" binds= [ -1 ]]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainerGlasses/ButtonNextGlasses" to="." method="update_glasses" binds= [ 1 ]]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainerHead/ButtonPrevHead" to="." method="update_head" binds= [ -1 ]]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainerHead/ButtonNextHead" to="." method="update_head" binds= [ 1 ]]
