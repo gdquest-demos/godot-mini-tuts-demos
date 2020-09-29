@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UserInterface/UICharacterCustomizer.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.235294, 0.639216, 0.439216, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.196078, 0.160784, 0.278431, 1 )
+
+[node name="UICharacterCustomizer" type="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -231.0
+margin_bottom = 407.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -5.0
+margin_top = -7.0
+margin_right = 230.0
+margin_bottom = 407.0
+rect_min_size = Vector2( 235, 414 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 20.0
+margin_right = -15.0
+margin_bottom = -19.964
+__meta__ = {
+"_edit_use_anchors_": false
+}
