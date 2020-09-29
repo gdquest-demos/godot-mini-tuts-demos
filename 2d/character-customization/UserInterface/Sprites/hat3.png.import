@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/medium-square.png-7137e35b60c069a62ac03539a10f6c4f.stex"
+path="res://.import/hat3.png-11215e709243a48f5056238c064163df.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/medium-square.png"
-dest_files=[ "res://.import/medium-square.png-7137e35b60c069a62ac03539a10f6c4f.stex" ]
+source_file="res://UserInterface/Sprites/hat3.png"
+dest_files=[ "res://.import/hat3.png-11215e709243a48f5056238c064163df.stex" ]
 
 [params]
 

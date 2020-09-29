@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hat2.png-f641afb761f62128da790cb67459f1ca.stex"
+path="res://.import/sun-glasses1.png-dda2ec5a2e3d606a07211ff4fc9b0d62.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/hat2.png"
-dest_files=[ "res://.import/hat2.png-f641afb761f62128da790cb67459f1ca.stex" ]
+source_file="res://UserInterface/Sprites/sun-glasses1.png"
+dest_files=[ "res://.import/sun-glasses1.png-dda2ec5a2e3d606a07211ff4fc9b0d62.stex" ]
 
 [params]
 

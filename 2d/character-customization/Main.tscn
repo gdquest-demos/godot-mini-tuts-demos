@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://CharacterCustomizer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UserInterface/UICharacterCustomizer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/top-down.svg" type="Texture" id=3]
+[ext_resource path="res://UserInterface/Sprites/top-down.svg" type="Texture" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 128, 0, 128, 64, 64, 64, 64, 128, 0, 128, 0, 64 )
@@ -188,11 +188,12 @@ position = Vector2( 247.26, 236.506 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CharacterCustomizer" parent="CanvasLayer" instance=ExtResource( 1 )]
+anchor_left = 0.0
 anchor_right = 0.0
 margin_left = 1000.0
 margin_top = 20.0
 margin_right = 1000.0
 margin_bottom = 20.0
-[connection signal="glasses_updated" from="CanvasLayer/CharacterCustomizer" to="Player" method="update_glasses"]
-[connection signal="hat_updated" from="CanvasLayer/CharacterCustomizer" to="Player" method="update_hat"]
-[connection signal="head_updated" from="CanvasLayer/CharacterCustomizer" to="Player" method="update_head"]
+[connection signal="glasses_changed" from="CanvasLayer/CharacterCustomizer" to="Player" method="_on_CharacterCustomizer_glasses_changed"]
+[connection signal="hat_changed" from="CanvasLayer/CharacterCustomizer" to="Player" method="_on_CharacterCustomizer_hat_changed"]
+[connection signal="head_changed" from="CanvasLayer/CharacterCustomizer" to="Player" method="_on_CharacterCustomizer_head_changed"]

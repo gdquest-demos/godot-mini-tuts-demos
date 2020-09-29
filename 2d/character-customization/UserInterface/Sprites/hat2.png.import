@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dark-diamond.png-049437d90f3bf02ae1dc176116bb0a44.stex"
+path="res://.import/hat2.png-5dac1abd1cd42625892792fa2752bda1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/dark-diamond.png"
-dest_files=[ "res://.import/dark-diamond.png-049437d90f3bf02ae1dc176116bb0a44.stex" ]
+source_file="res://UserInterface/Sprites/hat2.png"
+dest_files=[ "res://.import/hat2.png-5dac1abd1cd42625892792fa2752bda1.stex" ]
 
 [params]
 

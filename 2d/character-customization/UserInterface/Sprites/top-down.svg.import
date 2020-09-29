@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hat1.png-4a66b02123ecfecb9ea018c8f385fc46.stex"
+path="res://.import/top-down.svg-5ac1e2413026faba5838f801d864e1e3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/hat1.png"
-dest_files=[ "res://.import/hat1.png-4a66b02123ecfecb9ea018c8f385fc46.stex" ]
+source_file="res://UserInterface/Sprites/top-down.svg"
+dest_files=[ "res://.import/top-down.svg-5ac1e2413026faba5838f801d864e1e3.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

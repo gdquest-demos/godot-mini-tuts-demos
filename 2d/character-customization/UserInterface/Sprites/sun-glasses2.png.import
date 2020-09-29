@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dark-circle.png-a5d466e3fc4531299a235de2273fd0d8.stex"
+path="res://.import/sun-glasses2.png-d59458204da0505b180f490584a22306.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/dark-circle.png"
-dest_files=[ "res://.import/dark-circle.png-a5d466e3fc4531299a235de2273fd0d8.stex" ]
+source_file="res://UserInterface/Sprites/sun-glasses2.png"
+dest_files=[ "res://.import/sun-glasses2.png-d59458204da0505b180f490584a22306.stex" ]
 
 [params]
 
