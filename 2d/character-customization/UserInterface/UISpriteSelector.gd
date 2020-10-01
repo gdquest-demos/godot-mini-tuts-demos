@@ -4,7 +4,7 @@ extends Control
 signal sprite_changed(texture)
 
 var _sprites := []
-var _index := -1 setget _set_index
+var _index := 0 setget _set_index
 
 onready var texture_rect: TextureRect = $TextureRect
 
@@ -15,17 +15,15 @@ func setup(sprite_textures: Array) -> void:
 
 
 func _on_PreviousButton_pressed() -> void:
-	var new_index := wrapi(_index - 1, 0, _sprites.size())
-	_set_index(new_index)
+	_set_index(_index - 1)
 
 
 func _on_NextButton_pressed() -> void:
-	var new_index := wrapi(_index + 1, 0, _sprites.size())
-	_set_index(new_index)
+	_set_index(_index + 1)
 
 
 func _set_index(value: int) -> void:
-	_index = clamp(value, 0, _sprites.size()-1)
+	_index = wrapi(value, 0, _sprites.size())
 	var texture: StreamTexture = _sprites[_index]
 	texture_rect.texture = texture
 	emit_signal("sprite_changed", texture)
