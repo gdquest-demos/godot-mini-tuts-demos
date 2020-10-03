@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Actors/player.png" type="Texture" id=1]
 [ext_resource path="res://Actors/Player.gd" type="Script" id=2]
+[ext_resource path="res://Actors/ZoomingCamera2D.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 37.4959
@@ -16,7 +17,4 @@ texture = ExtResource( 1 )
 position = Vector2( -4.16084, -0.27739 )
 shape = SubResource( 1 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-
-[node name="Tween" type="Tween" parent="Camera2D"]
+[node name="ZoomingCamera2D" parent="." instance=ExtResource( 3 )]

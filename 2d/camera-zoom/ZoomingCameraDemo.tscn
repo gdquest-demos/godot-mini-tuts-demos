@@ -4,7 +4,7 @@
 [ext_resource path="res://Actors/Obstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Level/StarField.tscn" type="PackedScene" id=3]
 
-[node name="Demo" type="Node2D"]
+[node name="ZoomingCameraDemo" type="Node2D"]
 
 [node name="StarField" parent="." instance=ExtResource( 3 )]
 
