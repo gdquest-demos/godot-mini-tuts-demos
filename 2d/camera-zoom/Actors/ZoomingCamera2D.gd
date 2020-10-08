@@ -8,18 +8,18 @@ export var zoom_factor := 0.1
 export var min_zoom := 0.5
 export var max_zoom := 2.0
 
-var zoom_level := 1.0 setget _set_zoom_level
+var zoom_level := 1.0 setget set_zoom_level
 
 onready var tween: Tween = $Tween
 
 func _unhandled_input(event):
 	if event.is_action_pressed("zoom_in"):
-		_set_zoom_level(zoom_level - zoom_factor)
+		set_zoom_level(zoom_level - zoom_factor)
 	if event.is_action_pressed("zoom_out"):
-		_set_zoom_level(zoom_level + zoom_factor)
+		set_zoom_level(zoom_level + zoom_factor)
 
 
-func _set_zoom_level(value: float) -> void:
+func set_zoom_level(value: float) -> void:
 	zoom_level = clamp(value, min_zoom, max_zoom)
 	emit_signal("zoom_level_changed",zoom_level)
 	tween.interpolate_property(

@@ -14,4 +14,4 @@ func _on_zoom_level_changed(new_value: float) -> void:
 
 
 func _on_VSlider_value_changed(new_value: float) -> void:
-	zoom_camera._set_zoom_level(range_lerp(new_value,100, 1, zoom_camera.min_zoom, zoom_camera.max_zoom))
+	zoom_camera.set_zoom_level(range_lerp(new_value,100, 1, zoom_camera.min_zoom, zoom_camera.max_zoom))
