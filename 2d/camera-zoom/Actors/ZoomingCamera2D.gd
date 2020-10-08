@@ -12,8 +12,10 @@ var _zoom_level := 1.0 setget _set_zoom_level
 
 onready var tween: Tween = $Tween
 
+
 func _ready() -> void:
 	EVENTS.connect("zoom_slider_changed", self, "_on_zoom_slider_changed")
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("zoom_in"):
@@ -38,6 +40,4 @@ func _set_zoom_level(value: float) -> void:
 
 
 func _on_zoom_slider_changed(new_value: float) -> void:
-	_set_zoom_level(
-		range_lerp(new_value, 100, 1, min_zoom, max_zoom)
-	)
+	_set_zoom_level(range_lerp(new_value, 100, 1, min_zoom, max_zoom))
