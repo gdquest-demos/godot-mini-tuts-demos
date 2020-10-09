@@ -8,27 +8,36 @@ export var zoom_factor := 0.1
 export var min_zoom := 0.5
 export var max_zoom := 2.0
 
-var zoom_level := 1.0 setget set_zoom_level
+var _zoom_level := 1.0 setget _set_zoom_level
 
 onready var tween: Tween = $Tween
 
+func _ready() -> void:
+	EVENTS.connect("zoom_slider_changed", self, "_on_zoom_slider_changed")
+
 func _unhandled_input(event):
 	if event.is_action_pressed("zoom_in"):
-		set_zoom_level(zoom_level - zoom_factor)
+		_set_zoom_level(_zoom_level - zoom_factor)
 	if event.is_action_pressed("zoom_out"):
-		set_zoom_level(zoom_level + zoom_factor)
+		_set_zoom_level(_zoom_level + zoom_factor)
 
 
-func set_zoom_level(value: float) -> void:
-	zoom_level = clamp(value, min_zoom, max_zoom)
-	emit_signal("zoom_level_changed",zoom_level)
+func _set_zoom_level(value: float) -> void:
+	_zoom_level = clamp(value, min_zoom, max_zoom)
+	EVENTS.emit_signal("zoom_level_changed", _zoom_level)
 	tween.interpolate_property(
 		self,
 		"zoom",
 		zoom,
-		Vector2(zoom_level, zoom_level),
+		Vector2(_zoom_level, _zoom_level),
 		zoom_duration,
 		tween.TRANS_SINE,
 		tween.EASE_OUT
 	)
 	tween.start()
+
+
+func _on_zoom_slider_changed(new_value: float) -> void:
+	_set_zoom_level(
+		range_lerp(new_value, 100, 1, min_zoom, max_zoom)
+	)

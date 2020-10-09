@@ -36,6 +36,10 @@ config/name="camera-zoom"
 run/main_scene="res://ZoomingCameraDemo.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+EVENTS="*res://Singletone/Events.gd"
+
 [display]
 
 window/size/width=1920
