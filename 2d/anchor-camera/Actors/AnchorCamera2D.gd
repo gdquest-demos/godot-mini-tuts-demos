@@ -46,13 +46,7 @@ func _set_camera_to_player(prev_anchor_position: Vector2) -> void:
 	set_as_toplevel(false)
 	global_position = prev_anchor_position
 	tween.interpolate_property(
-		self,
-		"position",
-		position,
-		Vector2.ZERO,
-		anchor_duration,
-		tween.TRANS_SINE,
-		tween.EASE_OUT
+		self, "position", position, Vector2.ZERO, anchor_duration, tween.TRANS_SINE, tween.EASE_OUT
 	)
 	tween.start()
 
