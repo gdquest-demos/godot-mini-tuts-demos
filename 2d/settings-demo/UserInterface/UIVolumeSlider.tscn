@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UserInterface/UIVolumeSlider.gd" type="Script" id=1]
+
+[node name="UIVolumeslider" type="HSlider"]
+margin_right = 16.0
+margin_bottom = 16.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]
