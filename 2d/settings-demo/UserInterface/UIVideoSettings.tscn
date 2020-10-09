@@ -10,7 +10,7 @@ bg_color = Color( 0.2, 0.219608, 0.278431, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -994.0
-margin_bottom = -548.0
+margin_bottom = -528.0
 rect_min_size = Vector2( 276, 172 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -85,7 +85,7 @@ text = "Fullscreen"
 [node name="FullScreenCheckBox" type="CheckBox" parent="Panel/FullScreen"]
 margin_left = 104.0
 margin_right = 248.0
-margin_bottom = 30.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 text = "On"
 
