@@ -1,12 +1,18 @@
-extends OptionButton
+extends Control
 
 signal resolution_changed(new_resolution)
 
+onready var option_button: OptionButton = $OptionButton
+
 
 func _ready() -> void:
-	_on_ResolutionOptionButton_item_selected(0)
+	_update_selected_item(0)
 
 
-func _on_ResolutionOptionButton_item_selected(index):
-	var new_values := text.split_floats("x")
-	emit_signal("resolution_changed", Vector2(new_values[0], new_values[1]))
+func _update_selected_item(index: int) -> void:
+	var values := option_button.text.split_floats("x")
+	emit_signal("resolution_changed", Vector2(values[0], values[1]))
+
+
+func _on_OptionButton_item_selected(index: int) -> void:
+	_update_selected_item(index)

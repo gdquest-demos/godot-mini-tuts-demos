@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UserInterface/UISettingCheckbox.gd" type="Script" id=1]
+
+[node name="UISettingCheckbox" type="HBoxContainer"]
+anchor_right = 1.0
+margin_left = 10.0
+margin_top = 50.0
+margin_right = -10.0
+margin_bottom = 81.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 8.0
+margin_right = 628.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 632.0
+margin_right = 1260.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+text = "On"
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]

@@ -1,27 +1,24 @@
+# User interface that allows the player to select game settings.
+# To see how we update the actual window and rendering settings, see
+# `Main.gd`.
 extends Control
 
-var _resolution := Vector2(640, 480)
-var _fullscreen := false
-var _vsync := true
+signal apply_button_pressed(settings)
 
-signal apply_video_settings(resolution, fullscreen, vsync)
+var _settings := {resolution = Vector2(640, 480), fullscreen = false, vsync = false}
 
 
-func _ready():
-	emit_signal("apply_video_settings", _resolution, _fullscreen, _vsync)
+func _on_ApplyButton_pressed() -> void:
+	emit_signal("apply_button_pressed", _settings)
 
 
 func _on_UIResolutionSelector_resolution_changed(new_resolution: Vector2) -> void:
-	_resolution = new_resolution
+	_settings.resolution = new_resolution
 
 
-func _on_FullScreenCheckBox_toggled(button_pressed: bool) -> void:
-	_fullscreen = button_pressed
+func _on_UIFullscreenCheckbox_toggled(is_button_pressed: bool) -> void:
+	_settings.fullscreen = is_button_pressed
 
 
-func _on_VSyncCheckBox_toggled(button_pressed: bool) -> void:
-	_vsync = button_pressed
-
-
-func _on_Button_pressed():
-	emit_signal("apply_video_settings", _resolution, _fullscreen, _vsync)
+func _on_UIVsyncCheckbox_toggled(is_button_pressed: bool) -> void:
+	_settings.vsync = is_button_pressed
