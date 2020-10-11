@@ -9,4 +9,4 @@ func _ready() -> void:
 
 func _on_ResolutionOptionButton_item_selected(index):
 	var new_values := text.split_floats("x")
-	emit_signal("resolution_changed", Vector2(new_values[0],new_values[1]))
+	emit_signal("resolution_changed", Vector2(new_values[0], new_values[1]))
