@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UserInterface/UIResolutionSelector.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UserInterface/UIVideoSettings.gd" type="Script" id=2]
+[ext_resource path="res://UserInterface/UISettingCheckbox.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.2, 0.219608, 0.278431, 1 )
+
+[node name="UIVideoSettings" type="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -110.5
+margin_right = 150.0
+margin_bottom = 110.5
+rect_min_size = Vector2( 300, 200 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 17.0
+margin_right = -14.0
+margin_bottom = -17.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 271.0
+margin_bottom = 14.0
+text = "Settings"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 271.0
+margin_bottom = 22.0
+
+[node name="UIResolutionSelector" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+margin_left = 0.0
+margin_top = 26.0
+margin_right = 271.0
+margin_bottom = 46.0
+
+[node name="UIFullscreenCheckbox" parent="VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+margin_left = 0.0
+margin_right = 271.0
+margin_bottom = 74.0
+title = "Full Screen"
+
+[node name="UIVsyncCheckbox" parent="VBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+margin_left = 0.0
+margin_top = 78.0
+margin_right = 271.0
+margin_bottom = 102.0
+title = "VSync"
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+margin_top = 106.0
+margin_right = 271.0
+margin_bottom = 163.0
+size_flags_vertical = 3
+
+[node name="ApplyButton" type="Button" parent="VBoxContainer"]
+margin_top = 167.0
+margin_right = 271.0
+margin_bottom = 187.0
+text = "Apply"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="resolution_changed" from="VBoxContainer/UIResolutionSelector" to="." method="_on_UIResolutionSelector_resolution_changed"]
+[connection signal="toggled" from="VBoxContainer/UIFullscreenCheckbox" to="." method="_on_UIFullscreenCheckbox_toggled"]
+[connection signal="toggled" from="VBoxContainer/UIVsyncCheckbox" to="." method="_on_UIVsyncCheckbox_toggled"]
+[connection signal="pressed" from="VBoxContainer/ApplyButton" to="." method="_on_ApplyButton_pressed"]
