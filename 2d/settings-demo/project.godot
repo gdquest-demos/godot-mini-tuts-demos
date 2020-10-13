@@ -19,6 +19,10 @@ config/name="settings-demo"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout=""
+
 [display]
 
 window/size/width=1280
