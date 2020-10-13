@@ -10,6 +10,7 @@
 
 [node name="StarField" parent="." instance=ExtResource( 3 )]
 position = Vector2( 960, 540 )
+amount = 60
 
 [node name="AnchorCamera" parent="." instance=ExtResource( 5 )]
 
@@ -21,13 +22,12 @@ position = Vector2( 960, 540 )
 position = Vector2( 0, 3.94177 )
 
 [node name="Anchor2" parent="Anchors" instance=ExtResource( 6 )]
-position = Vector2( 1883.88, -0.27739 )
+position = Vector2( 2878.87, 497.217 )
+scale = Vector2( 2, 2 )
+zoom_level = 2.0
 
 [node name="Anchor3" parent="Anchors" instance=ExtResource( 6 )]
 position = Vector2( 0, 1002.71 )
-
-[node name="Anchor4" parent="Anchors" instance=ExtResource( 6 )]
-position = Vector2( 1883.88, 1006.53 )
 
 [node name="Obstacles" type="Node" parent="."]
 
@@ -35,11 +35,19 @@ position = Vector2( 1883.88, 1006.53 )
 position = Vector2( 522.013, -277.762 )
 
 [node name="Obstacle2" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 1940.74, 521.363 )
+position = Vector2( 2261.59, 528.573 )
 scale = Vector2( 1.37922, 1.37922 )
 
 [node name="Obstacle3" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( 1219.47, -374.206 )
+scale = Vector2( 0.658088, 0.658088 )
+
+[node name="Obstacle26" parent="Obstacles" instance=ExtResource( 2 )]
+position = Vector2( 4356.11, 658.354 )
+scale = Vector2( 1.37922, 1.37922 )
+
+[node name="Obstacle25" parent="Obstacles" instance=ExtResource( 2 )]
+position = Vector2( 2939.07, -56.9632 )
 scale = Vector2( 0.658088, 0.658088 )
 
 [node name="Obstacle4" parent="Obstacles" instance=ExtResource( 2 )]
@@ -47,7 +55,7 @@ position = Vector2( -599.745, 318.004 )
 scale = Vector2( 2.12399, 2.12399 )
 
 [node name="Obstacle5" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 2010.11, 3.94177 )
+position = Vector2( 2417.48, -89.7891 )
 scale = Vector2( 1.11608, 1.11608 )
 
 [node name="Obstacle9" parent="Obstacles" instance=ExtResource( 2 )]
@@ -58,16 +66,35 @@ scale = Vector2( 0.931936, 0.931936 )
 position = Vector2( 955.285, -123.034 )
 scale = Vector2( 1.34434, 1.34434 )
 
+[node name="Obstacle24" parent="Obstacles" instance=ExtResource( 2 )]
+position = Vector2( 3729.71, 321.185 )
+scale = Vector2( 1.11608, 1.11608 )
+
+[node name="Obstacle23" parent="Obstacles" instance=ExtResource( 2 )]
+position = Vector2( 3524.03, -45.3722 )
+scale = Vector2( 0.931936, 0.931936 )
+
+[node name="Obstacle22" parent="Obstacles" instance=ExtResource( 2 )]
+position = Vector2( 3482.41, 897.19 )
+scale = Vector2( 1.34434, 1.34434 )
+
 [node name="Obstacle7" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( 506.611, 315.073 )
 scale = Vector2( 1.16435, 1.16435 )
 
 [node name="Obstacle19" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 2674.5, -267.14 )
+position = Vector2( 3395.51, -422.156 )
 scale = Vector2( 1.16435, 1.16435 )
 
 [node name="Obstacle8" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( 1361.79, 315.201 )
+
+[node name="Obstacle21" parent="Obstacles" instance=ExtResource( 2 )]
+position = Vector2( 4203.03, 1286.63 )
+scale = Vector2( 1.16435, 1.16435 )
+
+[node name="Obstacle20" parent="Obstacles" instance=ExtResource( 2 )]
+position = Vector2( 4343.15, -207.529 )
 
 [node name="Obstacle18" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( 1186.42, 1006.53 )
