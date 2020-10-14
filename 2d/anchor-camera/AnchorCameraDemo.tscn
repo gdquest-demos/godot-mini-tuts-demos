@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Obstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Level/StarField.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Actors/Boss.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Level/Anchor.tscn" type="PackedScene" id=6]
 
 [node name="AnchorCameraDemo" type="Node2D"]
 
 [node name="StarField" parent="." instance=ExtResource( 3 )]
-position = Vector2( 960, 540 )
+position = Vector2( 1080, 540 )
+amount = 60
+
+[node name="StarField2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 500, 540 )
 amount = 60
 
 [node name="Anchors" type="Node" parent="."]
@@ -28,10 +33,6 @@ position = Vector2( 0, 1002.71 )
 [node name="Obstacle" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( 940.197, -21.8047 )
 
-[node name="Obstacle2" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 3100.66, -361.868 )
-scale = Vector2( 1.37922, 1.37922 )
-
 [node name="Obstacle3" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( 1219.47, -374.206 )
 scale = Vector2( 0.658088, 0.658088 )
@@ -40,16 +41,12 @@ scale = Vector2( 0.658088, 0.658088 )
 position = Vector2( 4770.51, 1569.34 )
 scale = Vector2( 1.37922, 1.37922 )
 
-[node name="Obstacle25" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 2939.07, -56.9632 )
-scale = Vector2( 0.658088, 0.658088 )
-
 [node name="Obstacle4" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( -852.097, 447.785 )
 scale = Vector2( 2.12399, 2.12399 )
 
 [node name="Obstacle5" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 2239.39, 526.67 )
+position = Vector2( 4469.5, 1280.37 )
 scale = Vector2( 1.11608, 1.11608 )
 
 [node name="Obstacle9" parent="Obstacles" instance=ExtResource( 2 )]
@@ -58,18 +55,6 @@ scale = Vector2( 0.931936, 0.931936 )
 
 [node name="Obstacle6" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( 943.749, -554.917 )
-scale = Vector2( 1.34434, 1.34434 )
-
-[node name="Obstacle24" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 3729.71, 321.185 )
-scale = Vector2( 1.11608, 1.11608 )
-
-[node name="Obstacle23" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 3524.03, -45.3722 )
-scale = Vector2( 0.931936, 0.931936 )
-
-[node name="Obstacle22" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 4201.61, 681.429 )
 scale = Vector2( 1.34434, 1.34434 )
 
 [node name="Obstacle7" parent="Obstacles" instance=ExtResource( 2 )]
@@ -81,14 +66,7 @@ position = Vector2( 4775.69, -583.12 )
 scale = Vector2( 1.16435, 1.16435 )
 
 [node name="Obstacle8" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 1533.03, 215.883 )
-
-[node name="Obstacle21" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 4203.03, 1286.63 )
-scale = Vector2( 1.16435, 1.16435 )
-
-[node name="Obstacle20" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 4343.15, -207.529 )
+position = Vector2( 4392.94, -166.127 )
 
 [node name="Obstacle18" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( 1186.42, 1006.53 )
@@ -98,7 +76,7 @@ position = Vector2( 51.1609, 476.481 )
 scale = Vector2( 1.37922, 1.37922 )
 
 [node name="Obstacle16" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 1883.88, 910.089 )
+position = Vector2( 1661.9, 1312.75 )
 scale = Vector2( 0.658088, 0.658088 )
 
 [node name="Obstacle15" parent="Obstacles" instance=ExtResource( 2 )]
@@ -106,12 +84,8 @@ position = Vector2( -941.141, 1519.38 )
 scale = Vector2( 2.12399, 2.12399 )
 
 [node name="Obstacle14" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 2674.52, 1288.24 )
+position = Vector2( 2029.23, 369.351 )
 scale = Vector2( 1.11608, 1.11608 )
-
-[node name="Obstacle13" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 3369.56, 976.476 )
-scale = Vector2( 0.931936, 0.931936 )
 
 [node name="Obstacle12" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( 978.181, 1590.08 )
@@ -123,5 +97,7 @@ scale = Vector2( 1.16435, 1.16435 )
 
 [node name="Obstacle10" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( -521.84, 952.211 )
+
+[node name="Boss" parent="." instance=ExtResource( 4 )]
 
 [editable path="Player"]
