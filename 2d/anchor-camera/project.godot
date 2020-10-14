@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Anchor",
 "language": "GDScript",
-"path": "res://Actors/Anchor.gd"
+"path": "res://Level/Anchor.gd"
 }, {
 "base": "Camera2D",
 "class": "AnchorCamera2D",
