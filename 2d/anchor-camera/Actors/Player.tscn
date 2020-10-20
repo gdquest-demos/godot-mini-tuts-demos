@@ -3,7 +3,7 @@
 [ext_resource path="res://Actors/player.png" type="Texture" id=1]
 [ext_resource path="res://Actors/Player.gd" type="Script" id=2]
 [ext_resource path="res://Actors/AnchorCamera2D.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Actors/AnchorDetector.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Actors/AnchorDetector2D.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 36.1811
@@ -23,4 +23,8 @@ shape = SubResource( 1 )
 
 [node name="AnchorCamera" parent="." instance=ExtResource( 3 )]
 
-[node name="AnchorDetector" parent="." instance=ExtResource( 4 )]
+[node name="AnchorDetector2D" parent="." instance=ExtResource( 4 )]
+[connection signal="anchor_detached" from="AnchorDetector2D" to="AnchorCamera" method="_on_AnchorDetector2D_anchor_detached"]
+[connection signal="anchor_detected" from="AnchorDetector2D" to="AnchorCamera" method="_on_AnchorDetector2D_anchor_detected"]
+[connection signal="area_entered" from="AnchorDetector2D" to="AnchorCamera" method="_on_AnchorDetector2D_area_entered"]
+[connection signal="area_exited" from="AnchorDetector2D" to="AnchorCamera" method="_on_AnchorDetector2D_area_exited"]

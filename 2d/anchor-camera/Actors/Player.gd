@@ -1,7 +1,7 @@
 class_name Player
 extends KinematicBody2D
 
-export var speed := 350
+export var speed := 520.0
 export var angular_speed := 3.0
 
 

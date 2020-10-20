@@ -4,7 +4,7 @@
 [ext_resource path="res://Level/Obstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Level/StarField.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Actors/Boss.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Level/Anchor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Level/Anchor2D.tscn" type="PackedScene" id=6]
 
 [node name="AnchorCameraDemo" type="Node2D"]
 
