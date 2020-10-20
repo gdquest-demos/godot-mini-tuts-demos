@@ -11,10 +11,13 @@ export var max_zoom := 2.0
 var _zoom_level := 1.0 setget _set_zoom_level
 
 onready var tween: Tween = $Tween
+onready var zoom_slider: VSlider = get_node(
+	"/root/ZoomingCameraDemo/UI/Zoom_slider"
+)
 
 
 func _ready() -> void:
-	EVENTS.connect("zoom_slider_changed", self, "_on_zoom_slider_changed")
+	zoom_slider.connect("vslider_changed", self, "_on_Zoom_slider_vslider_changed")
 
 
 func _unhandled_input(event):
@@ -26,7 +29,7 @@ func _unhandled_input(event):
 
 func _set_zoom_level(value: float) -> void:
 	_zoom_level = clamp(value, min_zoom, max_zoom)
-	EVENTS.emit_signal("zoom_level_changed", _zoom_level)
+	self.emit_signal("zoom_level_changed", _zoom_level)
 	tween.interpolate_property(
 		self,
 		"zoom",
@@ -39,5 +42,5 @@ func _set_zoom_level(value: float) -> void:
 	tween.start()
 
 
-func _on_zoom_slider_changed(new_value: float) -> void:
+func _on_Zoom_slider_vslider_changed(new_value: float) -> void:
 	_set_zoom_level(range_lerp(new_value, 100, 1, min_zoom, max_zoom))

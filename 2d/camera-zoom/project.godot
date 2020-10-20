@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Actors/Player.gd"
 }, {
-"base": "Control",
+"base": "VSlider",
 "class": "ZoomSlider",
 "language": "GDScript",
 "path": "res://UI/Zoom_slider.gd"
@@ -35,10 +35,6 @@ _global_script_class_icons={
 config/name="camera-zoom"
 run/main_scene="res://ZoomingCameraDemo.tscn"
 config/icon="res://icon.png"
-
-[autoload]
-
-EVENTS="*res://Singletone/Events.gd"
 
 [display]
 
