@@ -10,4 +10,3 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="value_changed" from="." to="." method="_on_VSlider_value_changed"]
