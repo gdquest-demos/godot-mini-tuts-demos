@@ -1,14 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Actors/Obstacle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Level/StarField.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Zoom_slider.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ZoomingCameraDemo.gd" type="Script" id=5]
 
 [node name="ZoomingCameraDemo" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="StarField" parent="." instance=ExtResource( 3 )]
+position = Vector2( 960, 540 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 960, 540.514 )
 
 [node name="Obstacles" type="Node" parent="."]
 
@@ -16,16 +21,19 @@
 position = Vector2( 608.113, -253.845 )
 
 [node name="Obstacle2" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( -588.587, -368.215 )
+position = Vector2( 1794.85, 985.344 )
 
 [node name="Obstacle3" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 106.001, -761.536 )
+position = Vector2( 2489.44, 592.023 )
 
 [node name="Obstacle4" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( -599.745, 318.004 )
 
 [node name="Obstacle5" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( 923.328, 499.322 )
+position = Vector2( 1372.4, 618.254 )
+
+[node name="Obstacle9" parent="Obstacles" instance=ExtResource( 2 )]
+position = Vector2( 564.226, 532.796 )
 
 [node name="Obstacle6" parent="Obstacles" instance=ExtResource( 2 )]
 position = Vector2( 1308.28, -41.8428 )
@@ -34,6 +42,12 @@ position = Vector2( 1308.28, -41.8428 )
 position = Vector2( 80.8959, 834.063 )
 
 [node name="Obstacle8" parent="Obstacles" instance=ExtResource( 2 )]
-position = Vector2( -1428.23, -86.475 )
+position = Vector2( 955.211, 1267.08 )
 
-[editable path="Player"]
+[node name="UI" type="CanvasLayer" parent="."]
+offset = Vector2( 25, 20 )
+transform = Transform2D( 1, 0, 0, 1, 25, 20 )
+
+[node name="ZoomSlider" parent="UI" instance=ExtResource( 4 )]
+step = 0.0
+[connection signal="value_changed" from="UI/ZoomSlider" to="." method="_on_ZoomSlider_value_changed"]
