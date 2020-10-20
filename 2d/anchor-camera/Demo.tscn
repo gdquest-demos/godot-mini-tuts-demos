@@ -101,3 +101,5 @@ position = Vector2( -521.84, 952.211 )
 [node name="Boss" parent="." instance=ExtResource( 4 )]
 
 [editable path="Player"]
+
+[editable path="Player/AnchorDetector2D"]

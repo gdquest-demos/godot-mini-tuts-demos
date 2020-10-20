@@ -36,10 +36,6 @@ config/name="anchor-camera"
 run/main_scene="res://Demo.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-Events="*res://Singletone/Events.gd"
-
 [display]
 
 window/size/width=1920

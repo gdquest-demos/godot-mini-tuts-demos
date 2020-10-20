@@ -26,5 +26,3 @@ shape = SubResource( 1 )
 [node name="AnchorDetector2D" parent="." instance=ExtResource( 4 )]
 [connection signal="anchor_detached" from="AnchorDetector2D" to="AnchorCamera" method="_on_AnchorDetector2D_anchor_detached"]
 [connection signal="anchor_detected" from="AnchorDetector2D" to="AnchorCamera" method="_on_AnchorDetector2D_anchor_detected"]
-[connection signal="area_entered" from="AnchorDetector2D" to="AnchorCamera" method="_on_AnchorDetector2D_area_entered"]
-[connection signal="area_exited" from="AnchorDetector2D" to="AnchorCamera" method="_on_AnchorDetector2D_area_exited"]
