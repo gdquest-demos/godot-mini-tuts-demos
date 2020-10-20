@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Level/star.svg" type="Texture" id=1]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.267123, 0.994898 ), 0.0, 0.0, 0, 0, Vector2( 0.582192, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.746575, 1 ), 0.0496599, 0.0496599, 0, 0, Vector2( 1, 0 ), -0.0413832, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 1920, 1080, 0 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 50.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_random = 1.0
+scale_curve = SubResource( 2 )
+
+[node name="StarField" type="Particles2D"]
+amount = 30
+lifetime = 6.0
+preprocess = 6.0
+visibility_rect = Rect2( -5, -3, 1, 60 )
+process_material = SubResource( 3 )
+texture = ExtResource( 1 )
