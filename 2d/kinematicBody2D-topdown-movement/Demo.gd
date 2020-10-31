@@ -19,6 +19,7 @@ func _unhandled_input(event):
 	elif event.is_action_pressed("load_rotate_move"):
 		substitute_player(rotate_move_player.instance())
 
+
 func substitute_player(instance) -> void:
 	var children = get_node("Level1").get_children()
 	for c in children:
