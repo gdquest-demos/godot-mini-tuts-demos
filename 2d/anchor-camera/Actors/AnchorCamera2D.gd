@@ -5,6 +5,7 @@ const SLOW_RADIUS := 300.0
 
 export var tween_duration := 0.5
 export var max_speed := 2000.0
+export var mass := 2.0
 
 var _velocity = Vector2.ZERO
 var _anchor_position := Vector2.ZERO
@@ -51,5 +52,5 @@ func arrive_to(target_position: Vector2) -> void:
 	if distance_to_target < SLOW_RADIUS * zoom.x:
 		desired_velocity *= (distance_to_target / (SLOW_RADIUS * zoom.x))
 
-	_velocity += desired_velocity - _velocity
+	_velocity += (desired_velocity - _velocity) / mass
 	position += _velocity * get_physics_process_delta_time()

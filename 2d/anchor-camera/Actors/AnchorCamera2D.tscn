@@ -5,3 +5,4 @@
 [node name="AnchorCamera" type="Camera2D"]
 current = true
 script = ExtResource( 1 )
+mass = 2.0
