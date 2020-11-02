@@ -3,7 +3,6 @@ extends Camera2D
 
 const SLOW_RADIUS := 300.0
 
-export var tween_duration := 0.5
 export var max_speed := 2000.0
 export var mass := 2.0
 

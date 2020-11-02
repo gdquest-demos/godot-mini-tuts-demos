@@ -1,3 +1,4 @@
+class_name AnchorDetector2D
 extends Area2D
 
 signal anchor_detected(anchor)
