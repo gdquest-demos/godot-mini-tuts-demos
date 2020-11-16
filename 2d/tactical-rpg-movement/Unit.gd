@@ -15,6 +15,7 @@ export var grid: Resource
 export var skin: Texture setget set_skin
 
 onready var _sprite: Sprite = $Sprite
+onready var _anim_player: AnimationPlayer = $AnimationPlayer
 
 ## Coordinates of the current cell the cursor moved to.
 var cell := Vector2.ZERO setget set_cell
@@ -30,8 +31,10 @@ func set_is_selected(value: bool) -> void:
 	is_selected = value
 	if is_selected:
 		emit_signal("selected")
+		_anim_player.play("selected")
 	else:
 		emit_signal("deselected")
+		_anim_player.play("idle")
 
 
 func set_skin(value: Texture) -> void:

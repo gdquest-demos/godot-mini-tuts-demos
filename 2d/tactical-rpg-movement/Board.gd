@@ -11,13 +11,18 @@ export var grid: Resource
 
 ## Array of size `grid_size` that stores references to the grid cells' content.
 var _units := {}
+var _selected_unit: Unit
 
 onready var cursor: Cursor = $Cursor
 
 
 func _ready() -> void:
 	_reinitialize()
-	print(_units)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if _selected_unit and event.is_action_pressed("ui_cancel"):
+		_deselect_unit()
 
 
 func _get_configuration_warning() -> String:
@@ -64,14 +69,29 @@ func _flood_fill(array: Array, cell: Vector2, max_distance: int) -> void:
 
 
 func _on_Unit_move_requested(new_cell: Vector2, unit: Unit) -> void:
-	var grid_coordinates: Vector2 = grid.calculate_grid_coordinates(unit.position)
-	if is_occupied(grid_coordinates):
+	var cell: Vector2 = grid.calculate_grid_coordinates(unit.position)
+	if is_occupied(cell):
 		return
-	_units.erase(grid_coordinates)
+	_units.erase(cell)
 	_units[new_cell] = unit
 
 
 func _on_Cursor_accept_pressed(cell: Vector2) -> void:
-	if _units.has(cell):
-		var unit: Unit = _units[cell]
-		unit.is_selected = true
+	# Select unit
+	if not _selected_unit:
+		_select_unit(cell)
+	else:
+		_selected_unit.cell = cell
+
+
+func _select_unit(cell: Vector2) -> void:
+	if not _units.has(cell):
+		return
+	var unit: Unit = _units[cell]
+	_selected_unit = unit
+	unit.is_selected = true
+
+
+func _deselect_unit() -> void:
+	_selected_unit.is_selected = false
+	_selected_unit = null
