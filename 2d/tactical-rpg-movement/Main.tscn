@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Cursor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Unit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Board.gd" type="Script" id=3]
+[ext_resource path="res://Grid.tres" type="Resource" id=4]
+
+[node name="Main" type="Node2D"]
+
+[node name="Board" type="Node2D" parent="."]
+script = ExtResource( 3 )
+grid = ExtResource( 4 )
+
+[node name="Unit" parent="Board" instance=ExtResource( 2 )]
+position = Vector2( 350.148, 266.968 )
+
+[node name="Unit2" parent="Board" instance=ExtResource( 2 )]
+position = Vector2( 850.293, 412.465 )
+
+[node name="Unit3" parent="Board" instance=ExtResource( 2 )]
+position = Vector2( 584.66, 536.606 )
+
+[node name="Cursor" parent="Board" instance=ExtResource( 1 )]
+[connection signal="accept_pressed" from="Board/Cursor" to="Board" method="_on_Cursor_accept_pressed"]
