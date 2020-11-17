@@ -13,6 +13,7 @@ signal deselected
 
 export var grid: Resource
 export var skin: Texture setget set_skin
+export var speed := 6
 
 onready var _sprite: Sprite = $Sprite
 onready var _anim_player: AnimationPlayer = $AnimationPlayer
@@ -50,3 +51,4 @@ func set_cell(value: Vector2) -> void:
 	else:
 		cell = value
 	position = grid.calculate_map_position(cell)
+	emit_signal("move_requested", cell)

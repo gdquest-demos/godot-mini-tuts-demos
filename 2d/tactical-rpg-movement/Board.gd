@@ -13,7 +13,8 @@ export var grid: Resource
 var _units := {}
 var _selected_unit: Unit
 
-onready var cursor: Cursor = $Cursor
+onready var _cursor: Cursor = $Cursor
+onready var _unit_overlay: UnitOverlay = $UnitOverlay
 
 
 func _ready() -> void:
@@ -34,12 +35,13 @@ func _get_configuration_warning() -> String:
 
 ## Returns `true` if the cell is occupied.
 func is_occupied(grid_position: Vector2) -> bool:
-	return true if _units[grid_position] != null else false
+	return true if _units.has(grid_position) else false
 
 
 ## Clears, and refills the `_units` dictionary with game objects that are on the board.
 func _reinitialize() -> void:
 	_units.clear()
+
 	for child in get_children():
 		if not child is Unit:
 			continue
@@ -47,17 +49,17 @@ func _reinitialize() -> void:
 		_units[coordinates] = child
 
 
-func get_walkable_cells(cell: Vector2, max_distance: int) -> Array:
+func get_walkable_cells(unit: Unit) -> Array:
 	var out := []
-	_flood_fill(out, cell, max_distance)
+	_flood_fill(out, unit, unit.cell, unit.speed)
 	return out
 
 
 ## Fills the `array` with coordinates of walkable cells based on the `max_distance`.
-func _flood_fill(array: Array, cell: Vector2, max_distance: int) -> void:
-	if is_occupied(cell):
+func _flood_fill(array: Array, unit: Unit, cell: Vector2, max_distance: int) -> void:
+	if max_distance == 0:
 		return
-	elif max_distance == 0:
+	if cell != unit.cell and is_occupied(cell):
 		return
 
 	array.append(cell)
@@ -65,23 +67,24 @@ func _flood_fill(array: Array, cell: Vector2, max_distance: int) -> void:
 		var coordinates: Vector2 = cell + direction
 		if is_occupied(coordinates):
 			continue
-		_flood_fill(array, coordinates, max_distance - 1)
+		_flood_fill(array, unit, coordinates, max_distance - 1)
 
 
-func _on_Unit_move_requested(new_cell: Vector2, unit: Unit) -> void:
-	var cell: Vector2 = grid.calculate_grid_coordinates(unit.position)
-	if is_occupied(cell):
+func _move_unit(unit: Unit, new_cell: Vector2) -> void:
+	if is_occupied(new_cell):
 		return
-	_units.erase(cell)
+	_units.erase(unit.cell)
 	_units[new_cell] = unit
+	unit.cell = new_cell
+	print(_units.keys())
+	_deselect_unit()
 
 
 func _on_Cursor_accept_pressed(cell: Vector2) -> void:
-	# Select unit
 	if not _selected_unit:
 		_select_unit(cell)
 	else:
-		_selected_unit.cell = cell
+		_move_unit(_selected_unit, cell)
 
 
 func _select_unit(cell: Vector2) -> void:
@@ -90,8 +93,12 @@ func _select_unit(cell: Vector2) -> void:
 	var unit: Unit = _units[cell]
 	_selected_unit = unit
 	unit.is_selected = true
+	# TODO: take walkable cells into account
+	var cells := get_walkable_cells(unit)
+	_unit_overlay.draw(cells)
 
 
 func _deselect_unit() -> void:
 	_selected_unit.is_selected = false
 	_selected_unit = null
+	_unit_overlay.clear()

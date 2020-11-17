@@ -1,15 +1,45 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Cursor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Unit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Board.gd" type="Script" id=3]
 [ext_resource path="res://Grid.tres" type="Resource" id=4]
+[ext_resource path="res://UnitOverlay.gd" type="Script" id=5]
+[ext_resource path="res://tileset_unit_overlay.png" type="Texture" id=6]
+
+[sub_resource type="TileSet" id=1]
+0/name = "tileset_unit_overlay.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
 
 [node name="Main" type="Node2D"]
 
 [node name="Board" type="Node2D" parent="."]
 script = ExtResource( 3 )
 grid = ExtResource( 4 )
+
+[node name="UnitOverlay" type="TileMap" parent="Board"]
+modulate = Color( 1, 1, 1, 0.329412 )
+light_mask = 0
+tile_set = SubResource( 1 )
+collision_layer = 0
+collision_mask = 0
+occluder_light_mask = 0
+format = 1
+script = ExtResource( 5 )
+
+[node name="Cursor" parent="Board" instance=ExtResource( 1 )]
 
 [node name="Unit" parent="Board" instance=ExtResource( 2 )]
 position = Vector2( 350.148, 266.968 )
@@ -19,6 +49,4 @@ position = Vector2( 850.293, 412.465 )
 
 [node name="Unit3" parent="Board" instance=ExtResource( 2 )]
 position = Vector2( 584.66, 536.606 )
-
-[node name="Cursor" parent="Board" instance=ExtResource( 1 )]
 [connection signal="accept_pressed" from="Board/Cursor" to="Board" method="_on_Cursor_accept_pressed"]
