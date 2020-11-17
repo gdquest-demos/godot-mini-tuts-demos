@@ -12,6 +12,7 @@ export var grid: Resource
 ## Array of size `grid_size` that stores references to the grid cells' content.
 var _units := {}
 var _selected_unit: Unit
+var _walkable_cells := []
 
 onready var _cursor: Cursor = $Cursor
 onready var _unit_overlay: UnitOverlay = $UnitOverlay
@@ -71,20 +72,12 @@ func _flood_fill(array: Array, unit: Unit, cell: Vector2, max_distance: int) -> 
 
 
 func _move_unit(unit: Unit, new_cell: Vector2) -> void:
-	if is_occupied(new_cell):
+	if is_occupied(new_cell) or not new_cell in _walkable_cells:
 		return
 	_units.erase(unit.cell)
 	_units[new_cell] = unit
 	unit.cell = new_cell
-	print(_units.keys())
 	_deselect_unit()
-
-
-func _on_Cursor_accept_pressed(cell: Vector2) -> void:
-	if not _selected_unit:
-		_select_unit(cell)
-	else:
-		_move_unit(_selected_unit, cell)
 
 
 func _select_unit(cell: Vector2) -> void:
@@ -93,12 +86,20 @@ func _select_unit(cell: Vector2) -> void:
 	var unit: Unit = _units[cell]
 	_selected_unit = unit
 	unit.is_selected = true
-	# TODO: take walkable cells into account
-	var cells := get_walkable_cells(unit)
-	_unit_overlay.draw(cells)
+	_walkable_cells = get_walkable_cells(unit)
+	_unit_overlay.draw(_walkable_cells)
 
 
 func _deselect_unit() -> void:
 	_selected_unit.is_selected = false
 	_selected_unit = null
+	_walkable_cells = []
 	_unit_overlay.clear()
+
+
+func _on_Cursor_accept_pressed(cell: Vector2) -> void:
+	if not _selected_unit:
+		_select_unit(cell)
+	else:
+		_move_unit(_selected_unit, cell)
+
