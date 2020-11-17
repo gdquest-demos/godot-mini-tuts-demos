@@ -13,25 +13,20 @@ export var ui_cooldown := 0.1
 ## Coordinates of the current cell the cursor moved to.
 var cell := Vector2.ZERO setget set_cell
 
-var _state = State.IDLE
-
 onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
 	timer.wait_time = ui_cooldown
-	# warning-ignore:return_value_discarded
-	timer.connect("timeout", self, "_on_Timer_timeout")
 	position = grid.calculate_map_position(cell)
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		self.cell = grid.calculate_grid_coordinates(event.position)
+
 	if event.is_action_pressed("click"):
-		var coordinates: Vector2 = grid.calculate_grid_coordinates(event.position)
-		if cell != coordinates:
-			self.cell = coordinates
-		else:
-			emit_signal("accept_pressed", cell)
+		emit_signal("accept_pressed", cell)
 		get_tree().set_input_as_handled()
 
 	if event.is_action_pressed("ui_accept"):
@@ -41,7 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_pressed():
 		return
 
-	if event.is_echo() and _state != State.IDLE:
+	if event.is_echo() and not timer.is_stopped():
 		return
 
 	if event.is_action("ui_right"):
@@ -64,9 +59,4 @@ func set_cell(value: Vector2) -> void:
 	else:
 		cell = value
 	position = grid.calculate_map_position(cell)
-	_state = State.MOVING
 	timer.start()
-
-
-func _on_Timer_timeout() -> void:
-	_state = State.IDLE
