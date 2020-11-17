@@ -34,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GameBoard/Pathfinder.gd"
 }, {
-"base": "Reference",
+"base": "Node2D",
 "class": "Unit",
 "language": "GDScript",
 "path": "res://Units/Unit.gd"

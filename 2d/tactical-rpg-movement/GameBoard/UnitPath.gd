@@ -1,11 +1,11 @@
 class_name UnitPath
 extends TileMap
 
-
 export var grid: Resource
 
 var _pathfinder: PathFinder
 var _cell_start
+
 
 func initialize(walkable_cells: Array) -> void:
 	_pathfinder = PathFinder.new(grid, walkable_cells)

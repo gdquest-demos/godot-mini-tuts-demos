@@ -43,7 +43,6 @@ func _find_neighbor_indices(cell: Vector2, cell_mappings: Dictionary) -> Array:
 		var neighbor: Vector2 = cell + direction
 		if not cell_mappings.has(neighbor):
 			continue
-		if not _astar.are_points_connected(cell_mappings[cell],
-cell_mappings[neighbor]):
+		if not _astar.are_points_connected(cell_mappings[cell], cell_mappings[neighbor]):
 			out.push_back(cell_mappings[neighbor])
 	return out

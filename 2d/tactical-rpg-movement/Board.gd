@@ -47,6 +47,7 @@ func get_walkable_cells(unit: Unit) -> Array:
 	_flood_fill(out, unit, unit.cell, unit.speed)
 	return out
 
+
 ## Clears, and refills the `_units` dictionary with game objects that are on the board.
 func _reinitialize() -> void:
 	_units.clear()
@@ -55,7 +56,6 @@ func _reinitialize() -> void:
 			continue
 		var coordinates: Vector2 = grid.calculate_grid_coordinates(child.position)
 		_units[coordinates] = child
-
 
 
 ## Recursive function that fills the `array` with coordinates of walkable cells based on the `max_distance`.

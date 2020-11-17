@@ -61,6 +61,11 @@ func _reinitialize() -> void:
 
 ## Fills the `array` with coordinates of walkable cells based on the `max_distance`.
 func _flood_fill(array: Array, unit: Unit, cell: Vector2, max_distance: int) -> void:
+	# While arrays are supposed to be passed by reference,
+	# the condition below produces strange results.
+	# Without it though, the array contains duplicates.
+#	if cell in array:
+#		return
 	if max_distance == 0:
 		return
 	if cell != unit.cell and is_occupied(cell):
@@ -68,10 +73,10 @@ func _flood_fill(array: Array, unit: Unit, cell: Vector2, max_distance: int) -> 
 
 	array.append(cell)
 	for direction in DIRECTIONS:
-		var coordinates: Vector2 = cell + direction
-		if is_occupied(coordinates):
+		var neighbor_cell: Vector2 = cell + direction
+		if not grid.is_within_bounds(neighbor_cell):
 			continue
-		_flood_fill(array, unit, coordinates, max_distance - 1)
+		_flood_fill(array, unit, neighbor_cell, max_distance - 1)
 
 
 func _move_unit(unit: Unit, new_cell: Vector2) -> void:

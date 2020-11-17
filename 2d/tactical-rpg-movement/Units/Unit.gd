@@ -9,6 +9,7 @@ extends Node2D
 export var grid: Resource
 export var skin: Texture setget set_skin
 export var speed := 6
+export var skin_offset := Vector2.ZERO setget set_skin_offset
 
 onready var _sprite: Sprite = $Sprite
 onready var _anim_player: AnimationPlayer = $AnimationPlayer
@@ -21,6 +22,7 @@ var is_selected := false setget set_is_selected
 func _ready() -> void:
 	cell = grid.calculate_grid_coordinates(position)
 	position = grid.calculate_map_position(cell)
+	_sprite.position = skin_offset
 
 
 func set_cell(value: Vector2) -> void:
@@ -44,3 +46,10 @@ func set_skin(value: Texture) -> void:
 	if not _sprite:
 		yield(self, "ready")
 	_sprite.texture = value
+
+
+func set_skin_offset(value: Vector2) -> void:
+	skin_offset = value
+	if not _sprite:
+		yield(self, "ready")
+	_sprite.position = value
