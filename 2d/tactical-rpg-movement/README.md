@@ -9,6 +9,5 @@ Features:
 - Grid-based movement.
 - Cursor to navigate the map and select a unit.
 - Displays the unit's walkable area.
-- Remembers the cells the user chose to walk through.
-- Simplifies the path automatically.
+- Displays the unit's path preview.
 - The user can validate or cancel the movement.
