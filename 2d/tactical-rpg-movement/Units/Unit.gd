@@ -6,11 +6,6 @@ tool
 class_name Unit
 extends Node2D
 
-signal move_requested(new_cell)
-## Useful for the user interface.
-signal selected
-signal deselected
-
 export var grid: Resource
 export var skin: Texture setget set_skin
 export var speed := 6
@@ -28,13 +23,19 @@ func _ready() -> void:
 	position = grid.calculate_map_position(cell)
 
 
+func set_cell(value: Vector2) -> void:
+	if not grid.is_within_bounds(value):
+		cell = grid.clamp(value)
+	else:
+		cell = value
+	position = grid.calculate_map_position(cell)
+
+
 func set_is_selected(value: bool) -> void:
 	is_selected = value
 	if is_selected:
-		emit_signal("selected")
 		_anim_player.play("selected")
 	else:
-		emit_signal("deselected")
 		_anim_player.play("idle")
 
 
@@ -43,12 +44,3 @@ func set_skin(value: Texture) -> void:
 	if not _sprite:
 		yield(self, "ready")
 	_sprite.texture = value
-
-
-func set_cell(value: Vector2) -> void:
-	if not grid.is_within_bounds(value):
-		cell = grid.clamp(value)
-	else:
-		cell = value
-	position = grid.calculate_map_position(cell)
-	emit_signal("move_requested", cell)

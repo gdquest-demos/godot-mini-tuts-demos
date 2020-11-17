@@ -10,33 +10,33 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
-"class": "Board",
-"language": "GDScript",
-"path": "res://Board.gd"
-}, {
-"base": "Node2D",
 "class": "Cursor",
 "language": "GDScript",
-"path": "res://Cursor.gd"
-}, {
-"base": "Resource",
-"class": "Grid",
-"language": "GDScript",
-"path": "res://Grid.gd"
+"path": "res://GameBoard/Cursor/Cursor.gd"
 }, {
 "base": "Node2D",
+"class": "GameBoard",
+"language": "GDScript",
+"path": "res://GameBoard/GameBoard.gd"
+}, {
+"base": "Reference",
+"class": "Grid",
+"language": "GDScript",
+"path": "res://GameBoard/Grid.gd"
+}, {
+"base": "Reference",
 "class": "Unit",
 "language": "GDScript",
-"path": "res://Unit.gd"
+"path": "res://Units/Unit.gd"
 }, {
-"base": "TileMap",
+"base": "Reference",
 "class": "UnitOverlay",
 "language": "GDScript",
-"path": "res://UnitOverlay.gd"
+"path": "res://UnitOverlay/UnitOverlay.gd"
 } ]
 _global_script_class_icons={
-"Board": "",
 "Cursor": "",
+"GameBoard": "",
 "Grid": "",
 "Unit": "",
 "UnitOverlay": ""
@@ -80,7 +80,3 @@ click={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"

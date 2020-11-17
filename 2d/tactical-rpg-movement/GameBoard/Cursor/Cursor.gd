@@ -20,6 +20,7 @@ onready var timer: Timer = $Timer
 
 func _ready() -> void:
 	timer.wait_time = ui_cooldown
+	# warning-ignore:return_value_discarded
 	timer.connect("timeout", self, "_on_Timer_timeout")
 	position = grid.calculate_map_position(cell)
 

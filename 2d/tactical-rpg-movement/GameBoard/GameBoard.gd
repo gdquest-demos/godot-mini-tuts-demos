@@ -1,7 +1,7 @@
 ## Represents and manages the game board. Stores references to entities that are in each cell and
 ## tells whether cells are occupied or not.
 ## Units can only move around the grid one at a time.
-class_name Board
+class_name GameBoard
 extends Node2D
 
 const DIRECTIONS = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
@@ -39,6 +39,12 @@ func is_occupied(grid_position: Vector2) -> bool:
 	return true if _units.has(grid_position) else false
 
 
+func get_walkable_cells(unit: Unit) -> Array:
+	var out := []
+	_flood_fill(out, unit, unit.cell, unit.speed)
+	return out
+
+
 ## Clears, and refills the `_units` dictionary with game objects that are on the board.
 func _reinitialize() -> void:
 	_units.clear()
@@ -48,12 +54,6 @@ func _reinitialize() -> void:
 			continue
 		var coordinates: Vector2 = grid.calculate_grid_coordinates(child.position)
 		_units[coordinates] = child
-
-
-func get_walkable_cells(unit: Unit) -> Array:
-	var out := []
-	_flood_fill(out, unit, unit.cell, unit.speed)
-	return out
 
 
 ## Fills the `array` with coordinates of walkable cells based on the `max_distance`.
@@ -74,6 +74,7 @@ func _flood_fill(array: Array, unit: Unit, cell: Vector2, max_distance: int) -> 
 func _move_unit(unit: Unit, new_cell: Vector2) -> void:
 	if is_occupied(new_cell) or not new_cell in _walkable_cells:
 		return
+	# warning-ignore:return_value_discarded
 	_units.erase(unit.cell)
 	_units[new_cell] = unit
 	unit.cell = new_cell
@@ -102,4 +103,3 @@ func _on_Cursor_accept_pressed(cell: Vector2) -> void:
 		_select_unit(cell)
 	else:
 		_move_unit(_selected_unit, cell)
-

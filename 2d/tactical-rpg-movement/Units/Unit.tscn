@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Unit.gd" type="Script" id=1]
-[ext_resource path="res://Grid.tres" type="Resource" id=2]
-[ext_resource path="res://bear.png" type="Texture" id=3]
+[ext_resource path="res://Units/Unit.gd" type="Script" id=1]
+[ext_resource path="res://GameBoard/Grid.tres" type="Resource" id=2]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -40,12 +40,10 @@ tracks/0/keys = {
 [node name="Unit" type="Node2D"]
 script = ExtResource( 1 )
 grid = ExtResource( 2 )
-skin = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 3, 6.8865 )
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 3 )
+position = Vector2( 2, 9.53517 )
+scale = Vector2( 0.24, 0.24 )
 offset = Vector2( -3.8147e-06, -185 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

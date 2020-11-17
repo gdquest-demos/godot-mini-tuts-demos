@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/menu_selection_arrow.png-b22d8c5ac651c8a67f7a3cbd94c2d481.stex"
+path="res://.import/bugcat.png-7ff3c35ca59dd0703ef6b59698f05591.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu_selection_arrow.png"
-dest_files=[ "res://.import/menu_selection_arrow.png-b22d8c5ac651c8a67f7a3cbd94c2d481.stex" ]
+source_file="res://Units/bugcat.png"
+dest_files=[ "res://.import/bugcat.png-7ff3c35ca59dd0703ef6b59698f05591.stex" ]
 
 [params]
 
