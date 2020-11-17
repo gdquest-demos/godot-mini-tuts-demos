@@ -1,24 +1,23 @@
 ## Represents and manages the game board. Stores references to entities that are in each cell and
 ## tells whether cells are occupied or not.
 ## Units can only move around the grid one at a time.
-class_name GameBoard
+class_name Board
 extends Node2D
-
-signal unit_selected(unit)
 
 const DIRECTIONS = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
 
 ## Resource of type Grid.
 export var grid: Resource
 
-## Mapping of coordinates of a cell to a reference to the unit it contains.
+## Array of size `grid_size` that stores references to the grid cells' content.
 var _units := {}
+## Reference to the currently selected unit.
 var _selected_unit: Unit
+## Array of cells the `_selected_unit` can walk.
 var _walkable_cells := []
 
 onready var _cursor: Cursor = $Cursor
 onready var _unit_overlay: UnitOverlay = $UnitOverlay
-onready var _unit_path: UnitPath = $UnitPath
 
 
 func _ready() -> void:
@@ -37,21 +36,20 @@ func _get_configuration_warning() -> String:
 	return warning
 
 
-## Returns `true` if the cell is occupied.
+## Returns `true` if the cell is occupied by a unit.
 func is_occupied(grid_position: Vector2) -> bool:
 	return true if _units.has(grid_position) else false
 
 
+## Returns an array of walkable cells for the given `unit`.
 func get_walkable_cells(unit: Unit) -> Array:
 	var out := []
 	_flood_fill(out, unit, unit.cell, unit.speed)
 	return out
 
-
 ## Clears, and refills the `_units` dictionary with game objects that are on the board.
 func _reinitialize() -> void:
 	_units.clear()
-
 	for child in get_children():
 		if not child is Unit:
 			continue
@@ -59,7 +57,8 @@ func _reinitialize() -> void:
 		_units[coordinates] = child
 
 
-## Fills the `array` with coordinates of walkable cells based on the `max_distance`.
+
+## Recursive function that fills the `array` with coordinates of walkable cells based on the `max_distance`.
 func _flood_fill(array: Array, unit: Unit, cell: Vector2, max_distance: int) -> void:
 	if max_distance == 0:
 		return
@@ -74,10 +73,10 @@ func _flood_fill(array: Array, unit: Unit, cell: Vector2, max_distance: int) -> 
 		_flood_fill(array, unit, coordinates, max_distance - 1)
 
 
+## Moves the `unit` to `new_cell` and deselects it.
 func _move_unit(unit: Unit, new_cell: Vector2) -> void:
 	if is_occupied(new_cell) or not new_cell in _walkable_cells:
 		return
-	# warning-ignore:return_value_discarded
 	_units.erase(unit.cell)
 	_units[new_cell] = unit
 	unit.cell = new_cell
@@ -92,7 +91,6 @@ func _select_unit(cell: Vector2) -> void:
 	unit.is_selected = true
 	_walkable_cells = get_walkable_cells(unit)
 	_unit_overlay.draw(_walkable_cells)
-	_unit_path.initialize(_walkable_cells)
 
 
 func _deselect_unit() -> void:
@@ -100,7 +98,6 @@ func _deselect_unit() -> void:
 	_selected_unit = null
 	_walkable_cells = []
 	_unit_overlay.clear()
-	_unit_path.stop()
 
 
 func _on_Cursor_accept_pressed(cell: Vector2) -> void:
@@ -108,8 +105,3 @@ func _on_Cursor_accept_pressed(cell: Vector2) -> void:
 		_select_unit(cell)
 	else:
 		_move_unit(_selected_unit, cell)
-
-
-func _on_Cursor_moved(new_cell: Vector2) -> void:
-	if _selected_unit:
-		_unit_path.draw(_selected_unit.cell, new_cell)

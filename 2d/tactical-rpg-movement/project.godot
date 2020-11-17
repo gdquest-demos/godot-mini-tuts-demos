@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "Board",
+"language": "GDScript",
+"path": "res://Board.gd"
+}, {
+"base": "Node2D",
 "class": "Cursor",
 "language": "GDScript",
 "path": "res://GameBoard/Cursor/Cursor.gd"
@@ -19,10 +24,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://GameBoard/GameBoard.gd"
 }, {
-"base": "Reference",
+"base": "Resource",
 "class": "Grid",
 "language": "GDScript",
 "path": "res://GameBoard/Grid.gd"
+}, {
+"base": "Reference",
+"class": "PathFinder",
+"language": "GDScript",
+"path": "res://GameBoard/Pathfinder.gd"
 }, {
 "base": "Reference",
 "class": "Unit",
@@ -33,13 +43,21 @@ _global_script_classes=[ {
 "class": "UnitOverlay",
 "language": "GDScript",
 "path": "res://UnitOverlay/UnitOverlay.gd"
+}, {
+"base": "TileMap",
+"class": "UnitPath",
+"language": "GDScript",
+"path": "res://GameBoard/UnitPath.gd"
 } ]
 _global_script_class_icons={
+"Board": "",
 "Cursor": "",
 "GameBoard": "",
 "Grid": "",
+"PathFinder": "",
 "Unit": "",
-"UnitOverlay": ""
+"UnitOverlay": "",
+"UnitPath": ""
 }
 
 [application]

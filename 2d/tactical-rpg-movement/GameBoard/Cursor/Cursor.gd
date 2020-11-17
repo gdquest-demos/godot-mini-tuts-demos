@@ -1,7 +1,9 @@
+tool
 class_name Cursor
 extends Node2D
 
 signal accept_pressed(cell)
+signal moved(new_cell)
 
 enum State { IDLE, MOVING }
 
@@ -24,18 +26,12 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		self.cell = grid.calculate_grid_coordinates(event.position)
-
-	if event.is_action_pressed("click"):
-		emit_signal("accept_pressed", cell)
-		get_tree().set_input_as_handled()
-
-	if event.is_action_pressed("ui_accept"):
+	elif event.is_action_pressed("click") or event.is_action_pressed("ui_accept"):
 		emit_signal("accept_pressed", cell)
 		get_tree().set_input_as_handled()
 
 	if not event.is_pressed():
 		return
-
 	if event.is_echo() and not timer.is_stopped():
 		return
 
@@ -59,4 +55,5 @@ func set_cell(value: Vector2) -> void:
 	else:
 		cell = value
 	position = grid.calculate_map_position(cell)
+	emit_signal("moved", cell)
 	timer.start()
