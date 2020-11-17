@@ -10,11 +10,6 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
-"class": "Board",
-"language": "GDScript",
-"path": "res://Board.gd"
-}, {
-"base": "Node2D",
 "class": "Cursor",
 "language": "GDScript",
 "path": "res://GameBoard/Cursor/Cursor.gd"
@@ -50,7 +45,6 @@ _global_script_classes=[ {
 "path": "res://GameBoard/UnitPath.gd"
 } ]
 _global_script_class_icons={
-"Board": "",
 "Cursor": "",
 "GameBoard": "",
 "Grid": "",

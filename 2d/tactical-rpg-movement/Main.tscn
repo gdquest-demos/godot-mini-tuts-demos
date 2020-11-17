@@ -102,7 +102,7 @@ grid = ExtResource( 4 )
 [node name="Unit" parent="GameBoard" instance=ExtResource( 2 )]
 position = Vector2( 600, 480 )
 skin = ExtResource( 8 )
-speed = 4
+speed = 3
 skin_offset = Vector2( 2, 7 )
 
 [node name="Unit2" parent="GameBoard" instance=ExtResource( 2 )]

@@ -4,6 +4,7 @@
 class_name GameBoard
 extends Node2D
 
+# warning-ignore:unused_signal
 signal unit_selected(unit)
 
 const DIRECTIONS = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]
@@ -43,9 +44,7 @@ func is_occupied(grid_position: Vector2) -> bool:
 
 
 func get_walkable_cells(unit: Unit) -> Array:
-	var out := []
-	_flood_fill(out, unit, unit.cell, unit.speed)
-	return out
+	return _flood_fill(unit.cell, unit.speed)
 
 
 ## Clears, and refills the `_units` dictionary with game objects that are on the board.
@@ -59,24 +58,30 @@ func _reinitialize() -> void:
 		_units[coordinates] = child
 
 
-## Fills the `array` with coordinates of walkable cells based on the `max_distance`.
-func _flood_fill(array: Array, unit: Unit, cell: Vector2, max_distance: int) -> void:
-	# While arrays are supposed to be passed by reference,
-	# the condition below produces strange results.
-	# Without it though, the array contains duplicates.
-#	if cell in array:
-#		return
-	if max_distance == 0:
-		return
-	if cell != unit.cell and is_occupied(cell):
-		return
-
-	array.append(cell)
-	for direction in DIRECTIONS:
-		var neighbor_cell: Vector2 = cell + direction
-		if not grid.is_within_bounds(neighbor_cell):
+## Returns an array with all the coordinates of walkable cells based on the `max_distance`.
+func _flood_fill(cell: Vector2, max_distance: int) -> Array:
+	var array := []
+	var stack := [cell]
+	while not stack.empty():
+		var current = stack.pop_back()
+		if not grid.is_within_bounds(current):
 			continue
-		_flood_fill(array, unit, neighbor_cell, max_distance - 1)
+		if current in array:
+			continue
+
+		var difference: Vector2 = (current - cell).abs()
+		var distance := int(difference.x + difference.y)
+		if distance > max_distance:
+			continue
+
+		array.append(current)
+		for direction in DIRECTIONS:
+			var coordinates: Vector2 = current + direction
+			if is_occupied(coordinates):
+				continue
+
+			stack.append(coordinates)
+	return array
 
 
 func _move_unit(unit: Unit, new_cell: Vector2) -> void:
