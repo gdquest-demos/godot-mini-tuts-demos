@@ -1,22 +1,20 @@
-extends Actor
+extends Sprite
 
-export var move_right_action := "move_right"
-export var move_left_action := "move_left"
-export var move_down_action := "move_down"
-export var move_up_action := "move_up"
+export var speed := 600.0
 
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_type():
-		update_actor_direction()
+var _velocity := Vector2.ZERO
 
 
-func update_actor_direction() -> void:
-	direction.x = (
-		Input.get_action_strength(move_right_action)
-		- Input.get_action_strength(move_left_action)
+func _physics_process(delta: float) -> void:
+	var direction  := Vector2(
+		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),
+		Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	)
-	direction.y = (
-		Input.get_action_strength(move_down_action)
-		- Input.get_action_strength(move_up_action)
-	)
+	
+	_velocity = direction * speed
+	if not direction.is_equal_approx(Vector2.ZERO):
+		rotation = _velocity.angle()
+	translate(_velocity * delta)
+	
+	position.x = clamp(position.x, 0.0, 2048)
+	position.y = clamp(position.y, 0.0, 1200)

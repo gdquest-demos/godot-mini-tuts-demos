@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/graph.svg-cb13b1491ab5f91f54cf4ad5899e9da5.stex"
+path="res://.import/graph.svg-ccfb513f07baf33ddb2de505c17abf0a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/Background/graph.svg"
-dest_files=[ "res://.import/graph.svg-cb13b1491ab5f91f54cf4ad5899e9da5.stex" ]
+source_file="res://Background/graph.svg"
+dest_files=[ "res://.import/graph.svg-ccfb513f07baf33ddb2de505c17abf0a.stex" ]
 
 [params]
 

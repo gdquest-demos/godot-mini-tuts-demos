@@ -9,25 +9,19 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Sprite",
-"class": "Actor",
-"language": "GDScript",
-"path": "res://Actors/Actor.gd"
-}, {
 "base": "Node2D",
 "class": "Bullet",
 "language": "GDScript",
 "path": "res://Objects/Bullet/Bullet.gd"
 } ]
 _global_script_class_icons={
-"Actor": "",
 "Bullet": ""
 }
 
 [application]
 
 config/name="Visibility Notifier and Enabler"
-run/main_scene="res://Screens/DemoEnabler.tscn"
+run/main_scene="res://DemoEnabler.tscn"
 config/icon="res://icon.png"
 
 [input]
