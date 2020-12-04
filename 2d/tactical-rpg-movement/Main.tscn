@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://GameBoard/Cursor/Cursor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Units/Unit.tscn" type="PackedScene" id=2]
@@ -76,6 +76,24 @@
 0/shapes = [  ]
 0/z_index = 0
 
+[sub_resource type="Curve2D" id=3]
+resource_local_to_scene = true
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[sub_resource type="Curve2D" id=4]
+resource_local_to_scene = true
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[sub_resource type="Curve2D" id=5]
+resource_local_to_scene = true
+_data = {
+"points": PoolVector2Array(  )
+}
+
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -99,21 +117,25 @@ grid = ExtResource( 4 )
 
 [node name="Cursor" parent="GameBoard" instance=ExtResource( 1 )]
 
-[node name="Unit" parent="GameBoard" instance=ExtResource( 2 )]
+[node name="Bear" parent="GameBoard" instance=ExtResource( 2 )]
 position = Vector2( 600, 480 )
+curve = SubResource( 3 )
 skin = ExtResource( 8 )
-speed = 3
-skin_offset = Vector2( 2, 7 )
+move_range = 3
+skin_offset = Vector2( 2, 9 )
 
-[node name="Unit2" parent="GameBoard" instance=ExtResource( 2 )]
+[node name="Cat" parent="GameBoard" instance=ExtResource( 2 )]
 position = Vector2( 850.293, 412.465 )
+curve = SubResource( 4 )
 skin = ExtResource( 9 )
-speed = 8
-skin_offset = Vector2( 3, 13 )
+move_range = 8
+skin_offset = Vector2( 5, 12 )
 
-[node name="Unit3" parent="GameBoard" instance=ExtResource( 2 )]
+[node name="Squirrel" parent="GameBoard" instance=ExtResource( 2 )]
 position = Vector2( 355.298, 298.556 )
+curve = SubResource( 5 )
 skin = ExtResource( 7 )
-skin_offset = Vector2( 0, 17 )
+move_range = 5
+skin_offset = Vector2( 6, 17 )
 [connection signal="accept_pressed" from="GameBoard/Cursor" to="GameBoard" method="_on_Cursor_accept_pressed"]
 [connection signal="moved" from="GameBoard/Cursor" to="GameBoard" method="_on_Cursor_moved"]

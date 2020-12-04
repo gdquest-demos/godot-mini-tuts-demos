@@ -12,29 +12,31 @@ export var grid: Resource
 ## Time before the cursor can move again in seconds.
 export var ui_cooldown := 0.1
 
-## Coordinates of the current cell the cursor moved to.
+## Coordinates of the current cell the cursor is hovering.
 var cell := Vector2.ZERO setget set_cell
 
-onready var timer: Timer = $Timer
+onready var _timer: Timer = $Timer
 
 
 func _ready() -> void:
-	timer.wait_time = ui_cooldown
+	_timer.wait_time = ui_cooldown
 	position = grid.calculate_map_position(cell)
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	# Navigating cells with the mouse.
 	if event is InputEventMouseMotion:
 		self.cell = grid.calculate_grid_coordinates(event.position)
+	# Trying to select something in a cell.
 	elif event.is_action_pressed("click") or event.is_action_pressed("ui_accept"):
 		emit_signal("accept_pressed", cell)
 		get_tree().set_input_as_handled()
 
-	if not event.is_pressed():
-		return
-	if event.is_echo() and not timer.is_stopped():
+	var should_move := event.is_pressed() and event.is_echo() and _timer.is_stopped()
+	if not should_move:
 		return
 
+	# Moves the cursor by one grid cell.
 	if event.is_action("ui_right"):
 		self.cell += Vector2.RIGHT
 	elif event.is_action("ui_up"):
@@ -56,4 +58,4 @@ func set_cell(value: Vector2) -> void:
 		cell = value
 	position = grid.calculate_map_position(cell)
 	emit_signal("moved", cell)
-	timer.start()
+	_timer.start()

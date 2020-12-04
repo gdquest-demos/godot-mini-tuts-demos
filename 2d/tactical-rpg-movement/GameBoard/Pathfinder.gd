@@ -37,6 +37,7 @@ func _add_and_connect_points(cell_mappings: Dictionary) -> void:
 			_astar.connect_points(cell_mappings[point], neighbor_index)
 
 
+## Returns an array of the `cell`'s connectable neighbors.
 func _find_neighbor_indices(cell: Vector2, cell_mappings: Dictionary) -> Array:
 	var out := []
 	for direction in DIRECTIONS:
