@@ -40,3 +40,5 @@ anims/Fly = SubResource( 2 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 rect = Rect2( -228, -228, 456, 456 )
+process_parent = true
+physics_process_parent = true
