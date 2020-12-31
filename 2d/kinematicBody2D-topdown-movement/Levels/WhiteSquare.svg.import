@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ParticleSquare.svg-8035e17ff01f8c82621c7961d0553741.stex"
+path="res://.import/WhiteSquare.svg-5365713fa34036179fc994d2e71bdf89.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/ParticleSquare.svg"
-dest_files=[ "res://.import/ParticleSquare.svg-8035e17ff01f8c82621c7961d0553741.stex" ]
+source_file="res://Levels/WhiteSquare.svg"
+dest_files=[ "res://.import/WhiteSquare.svg-5365713fa34036179fc994d2e71bdf89.stex" ]
 
 [params]
 

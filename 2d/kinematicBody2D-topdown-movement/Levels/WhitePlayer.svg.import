@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WhiteSquare.svg-82a4ec4bf6f73f345b44dae3383e21c5.stex"
+path="res://.import/WhitePlayer.svg-c4419ff5a2523f81559795a60485b484.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/WhiteSquare.svg"
-dest_files=[ "res://.import/WhiteSquare.svg-82a4ec4bf6f73f345b44dae3383e21c5.stex" ]
+source_file="res://Levels/WhitePlayer.svg"
+dest_files=[ "res://.import/WhitePlayer.svg-c4419ff5a2523f81559795a60485b484.stex" ]
 
 [params]
 

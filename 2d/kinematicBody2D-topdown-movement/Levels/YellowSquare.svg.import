@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/YellowSquare.svg-c41c69f79dc434109d912c1cfd775393.stex"
+path="res://.import/YellowSquare.svg-006deeeafb83a1f24762fb300adbf4a8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Level/YellowSquare.svg"
-dest_files=[ "res://.import/YellowSquare.svg-c41c69f79dc434109d912c1cfd775393.stex" ]
+source_file="res://Levels/YellowSquare.svg"
+dest_files=[ "res://.import/YellowSquare.svg-006deeeafb83a1f24762fb300adbf4a8.stex" ]
 
 [params]
 

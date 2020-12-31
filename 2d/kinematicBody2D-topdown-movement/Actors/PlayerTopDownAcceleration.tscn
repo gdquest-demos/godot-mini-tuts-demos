@@ -16,7 +16,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 32 )
+extents = Vector2( 30.3175, 30.7501 )
 
 [node name="PlayerTopDownAcceleration" type="KinematicBody2D"]
 script = ExtResource( 6 )
