@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/Demo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Actors/PlayerGeometry.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Actors/Yellow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/floor.tscn" type="PackedScene" id=4]
+
+[node name="GeometryLevel" instance=ExtResource( 1 )]
+
+[node name="PlayerGeometry" parent="." index="1" instance=ExtResource( 2 )]
+position = Vector2( 432, 952 )
+
+[node name="Obstacles" type="Node2D" parent="." index="2"]
+
+[node name="Yellow" parent="Obstacles" index="0" instance=ExtResource( 3 )]
+position = Vector2( 1176, 960 )
+
+[node name="Yellow2" parent="Obstacles" index="1" instance=ExtResource( 3 )]
+position = Vector2( 2040, 960 )
+
+[node name="Yellow3" parent="Obstacles" index="2" instance=ExtResource( 3 )]
+position = Vector2( 2848, 960 )
+
+[node name="Yellow4" parent="Obstacles" index="3" instance=ExtResource( 3 )]
+position = Vector2( 4400, 960 )
+
+[node name="floor" parent="." index="3" instance=ExtResource( 4 )]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/Border.svg" type="Texture" id=1]
+[ext_resource path="res://Levels/ParticleSquare.svg" type="Texture" id=2]
+[ext_resource path="res://Levels/SquareParticles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/SceneIndicator.tscn" type="PackedScene" id=4]
+
+[node name="AngryBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, 1000 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 2795.84, 236.733 )
+rotation = -0.523598
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite5" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 1036.83, 425.519 )
+rotation = 0.261799
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 970.904, 353.601 )
+rotation = -0.261799
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 218.753, 500.435 )
+rotation = -0.523598
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite4" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 3661.86, 398.55 )
+rotation = 0.523598
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 1851.91, 320.638 )
+rotation = 0.785397
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.25, 1 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Particles2D" parent="ParallaxLayer3" instance=ExtResource( 3 )]
+position = Vector2( 710.197, 0 )
+rotation = 1.57079
+
+[node name="Particles2D2" parent="ParallaxLayer3" instance=ExtResource( 3 )]
+position = Vector2( 1908.84, -8.98987 )
+rotation = 2.09439
+
+[node name="Particles2D3" parent="ParallaxLayer3" instance=ExtResource( 3 )]
+position = Vector2( 1908.84, -8.98987 )
+rotation = 1.0472
+
+[node name="Particles2D4" parent="ParallaxLayer3" instance=ExtResource( 3 )]
+position = Vector2( 3362.2, -8.98987 )
+rotation = 2.09439
+
+[node name="SceneIndicator" parent="." instance=ExtResource( 4 )]
