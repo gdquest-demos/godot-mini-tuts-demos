@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PlayerDOWN.svg-fba2b2a9e72819090469615870a25f2a.stex"
+path="res://.import/PlayerDOWN.svg-07b93841ab35fb0a1c2ad7f40653861d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Actors/src/PlayerDOWN.svg"
-dest_files=[ "res://.import/PlayerDOWN.svg-fba2b2a9e72819090469615870a25f2a.stex" ]
+source_file="res://Actors/Sprites/PlayerDOWN.svg"
+dest_files=[ "res://.import/PlayerDOWN.svg-07b93841ab35fb0a1c2ad7f40653861d.stex" ]
 
 [params]
 
