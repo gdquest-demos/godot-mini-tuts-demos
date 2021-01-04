@@ -4,6 +4,7 @@ var space_scene := "res://Levels/SpaceLevel.tscn"
 var flappy_scene := "res://Levels/FlappyLevel.tscn"
 var angry_scene := "res://Levels/AngryLevel.tscn"
 var geometry_scene := "res://Levels/GeometryLevel.tscn"
+var platformer_scene := "res://Levels/PlatformerLevel.tscn"
 
 
 func _unhandled_input(event):
@@ -15,3 +16,5 @@ func _unhandled_input(event):
 		get_tree().change_scene(angry_scene)
 	elif event.is_action_pressed("load_geometry"):
 		get_tree().change_scene(geometry_scene)
+	elif event.is_action_pressed("load_platformer"):
+		get_tree().change_scene(platformer_scene)
