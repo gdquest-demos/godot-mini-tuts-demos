@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Actors/PlayerTopDown.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Demo.tscn" type="PackedScene" id=2]
+
+[node name="DemoTopdown" instance=ExtResource( 2 )]
+
+[node name="PlayerTopDown" parent="Level1" index="5" instance=ExtResource( 1 )]
+position = Vector2( -384, 384 )
