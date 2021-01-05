@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Levels/SceneIndicator.gd" type="Script" id=1]
+[ext_resource path="res://Levels/SceneIndicator.tres" type="DynamicFont" id=2]
+
+[node name="SceneIndicator" type="MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 592.0
+margin_bottom = 151.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 572.0
+margin_bottom = 131.0
+color = Color( 0.0313726, 0.0823529, 0.164706, 0.772549 )
+
+[node name="Label" type="Label" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+text = "hola"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Levels/ParticleSquare.svg" type="Texture" id=1]
+
+
+[sub_resource type="ParticlesMaterial" id=1]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 0.5
+angular_velocity = 5.0
+angular_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.01
+scale_random = 0.05
+
+[node name="Particles2D" type="Particles2D"]
+amount = 25
+lifetime = 30.0
+preprocess = 20.0
+process_material = SubResource( 1 )
+texture = ExtResource( 1 )

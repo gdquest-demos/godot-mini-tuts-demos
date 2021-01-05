@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="Detector" type="Node2D"]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+rotation = -1.5708
+cast_to = Vector2( 0, 64 )
