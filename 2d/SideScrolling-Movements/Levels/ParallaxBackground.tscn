@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Levels/Level.svg" type="Texture" id=1]
+[ext_resource path="res://Levels/ParticleSquare.svg" type="Texture" id=2]
+[ext_resource path="res://Levels/SceneIndicator.tscn" type="PackedScene" id=3]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 2795.84, 236.733 )
+rotation = -0.523598
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite5" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 1036.83, 425.519 )
+rotation = 0.261799
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 970.904, 353.601 )
+rotation = -0.261799
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 218.753, 500.435 )
+rotation = -0.523598
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite4" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 3661.86, 398.55 )
+rotation = 0.523598
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="ParallaxLayer2"]
+position = Vector2( 1851.91, 320.638 )
+rotation = 0.785397
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="SceneIndicator" parent="." instance=ExtResource( 3 )]
