@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Levels/ChangeLevel.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Demo.gd" type="Script" id=1]
 [ext_resource path="res://Levels/ParallaxBackground.tscn" type="PackedScene" id=2]
 
 [node name="Demo" type="Node2D"]

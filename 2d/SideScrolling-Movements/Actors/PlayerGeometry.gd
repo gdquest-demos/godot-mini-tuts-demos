@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var gravity := 4000
-export var jump_impulse := 1400
+export var jump_impulse := 1000
 export var speed := 400
 
 var _velocity := Vector2.ZERO

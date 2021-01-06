@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var speed := 400
-export var gravity := 2500
+export var gravity := 3000
 export var jump_speed := -1000
 
 var _frame_index := {

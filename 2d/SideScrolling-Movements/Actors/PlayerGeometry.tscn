@@ -3,7 +3,6 @@
 [ext_resource path="res://Actors/Sprites/Player.svg" type="Texture" id=1]
 [ext_resource path="res://Actors/PlayerGeometry.gd" type="Script" id=2]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40.0001, 39.9999 )
 

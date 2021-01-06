@@ -22,7 +22,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-ChangeLevel="*res://Levels/ChangeLevel.gd"
+ChangeLevel="*res://Levels/Demo.gd"
 
 [display]
 

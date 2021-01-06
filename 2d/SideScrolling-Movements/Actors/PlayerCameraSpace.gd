@@ -1,4 +1,4 @@
-extends Camera2D
+extends Node2D
 
 export var minimum_speed := Vector2(400, 0)
 
