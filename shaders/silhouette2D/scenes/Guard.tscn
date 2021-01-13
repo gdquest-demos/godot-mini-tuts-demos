@@ -38,10 +38,11 @@ animations = [ {
 [sub_resource type="Shader" id=8]
 code = "shader_type canvas_item;
 
-void fragment(){
+void fragment() {
 	float a = texture(TEXTURE, UV).a;
 	COLOR = vec4(10.0) * a;
 }"
+custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = SubResource( 8 )
@@ -53,7 +54,7 @@ viewport_path = NodePath("Viewport")
 code = "shader_type canvas_item;
 uniform vec4 silhouette_color : hint_color;
 
-void fragment(){
+void fragment() {
 	vec4 screen_color = texture(SCREEN_TEXTURE, SCREEN_UV);
 	vec4 tex_color = texture(TEXTURE, UV);
 	COLOR = tex_color;
@@ -61,6 +62,7 @@ void fragment(){
 		COLOR.rgb = silhouette_color.rgb;
 	}
 }"
+custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=12]
 shader = SubResource( 11 )
@@ -83,7 +85,6 @@ render_target_update_mode = 3
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Viewport"]
 position = Vector2( 16, 16 )
 frames = SubResource( 7 )
-frame = 4
 playing = true
 
 [node name="Mask" type="Sprite" parent="."]
