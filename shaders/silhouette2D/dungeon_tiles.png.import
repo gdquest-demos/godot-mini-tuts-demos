@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/guard.png-75d5c74613a4f44e8538431608437586.stex"
+path="res://.import/dungeon_tiles.png-0a1bb1393cca85749b1cfe0ce4419117.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/guard.png"
-dest_files=[ "res://.import/guard.png-75d5c74613a4f44e8538431608437586.stex" ]
+source_file="res://dungeon_tiles.png"
+dest_files=[ "res://.import/dungeon_tiles.png-0a1bb1393cca85749b1cfe0ce4419117.stex" ]
 
 [params]
 

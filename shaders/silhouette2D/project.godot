@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="silhouette2D"
-run/main_scene="res://scenes/Level.tscn"
+run/main_scene="res://Level.tscn"
 config/icon="res://icon.png"
 
 [display]

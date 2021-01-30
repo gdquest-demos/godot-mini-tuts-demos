@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PurpleDungeonTilesNoFloor.png-6996cdd85732fd4b1f652bb84013690e.stex"
+path="res://.import/guard.png-ece71422a1897090adf6d54213160c12.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PurpleDungeonTilesNoFloor.png"
-dest_files=[ "res://.import/PurpleDungeonTilesNoFloor.png-6996cdd85732fd4b1f652bb84013690e.stex" ]
+source_file="res://guard.png"
+dest_files=[ "res://.import/guard.png-ece71422a1897090adf6d54213160c12.stex" ]
 
 [params]
 
