@@ -57,27 +57,46 @@ viewport_path = NodePath("Viewport")
 [sub_resource type="Shader" id=12]
 code = "shader_type canvas_item;
 
-// Allows you to control the output color in the Shader Params in the Inspector.
-uniform vec4 silhouette_color : hint_color;
+// The output color for the outline
+uniform vec4 outline_color : hint_color;
 
 void fragment() {
-	// We sample the screen texture at this point, which has the Mask node's pixels
-	// rendered on screen.
 	vec4 screen_color = texture(SCREEN_TEXTURE, SCREEN_UV);
 	vec4 tex_color = texture(TEXTURE, UV);
 	COLOR = tex_color;
 
-	// If the pixel's value is lower than the Mask's output color, it means the
-	// mask is being occluded, so we draw the silhouette instead.
 	if (screen_color.r < 10.0){
-		COLOR.rgb = silhouette_color.rgb;
+		COLOR.rgb = outline_color.rgb;
+		
+		// We convert the pixel width we want for our outline in decimal texel size.
+		vec2 size = vec2(1.0) / vec2(textureSize(TEXTURE, 0));
+		
+		// We sample and offset the texture 8 times to draw an outline.
+		float alpha = tex_color.a;
+		alpha += texture(TEXTURE, UV + vec2(0.0, -size.y)).a;
+		alpha += texture(TEXTURE, UV + vec2(size.x, -size.y)).a;
+		alpha += texture(TEXTURE, UV + vec2(size.x, 0.0)).a;
+		alpha += texture(TEXTURE, UV + vec2(size.x, size.y)).a;
+		alpha += texture(TEXTURE, UV + vec2(0.0, size.y)).a;
+		alpha += texture(TEXTURE, UV + vec2(-size.x, size.y)).a;
+		alpha += texture(TEXTURE, UV + vec2(-size.x, 0.0)).a;
+		alpha += texture(TEXTURE, UV + vec2(-size.x, -size.y)).a;
+		
+		// If the summed alpha is too high, it means we're over the original texture
+		// and we don't want to draw this pixel; it's not part of the outline.
+		if (alpha >= 9.0) {
+			alpha = 0.0;
+		}
+		
+		// We then override the texture's color with the calculated outline.
+		COLOR = vec4(outline_color.rgb, min(alpha, 1.0) * tex_color.a);
 	}
 }"
 custom_defines = ""
 
 [sub_resource type="ShaderMaterial" id=13]
 shader = SubResource( 12 )
-shader_param/silhouette_color = Color( 0.290196, 0.901961, 1, 1 )
+shader_param/outline_color = Color( 0.0156863, 0.909804, 1, 1 )
 
 [node name="Character" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -97,7 +116,6 @@ render_target_update_mode = 3
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Viewport"]
 position = Vector2( 16, 16 )
 frames = SubResource( 8 )
-frame = 4
 playing = true
 
 [node name="Mask" type="Sprite" parent="."]
