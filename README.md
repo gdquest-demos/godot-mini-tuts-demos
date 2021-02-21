@@ -4,6 +4,8 @@
 
 A collection of Free and Open-Source companion demos for our [Godot tutorials](https://www.gdquest.com/tutorial/godot/). Each demo shows how to solve a specific problem.
 
+Each of these demos comes with a corresponding tutorial. In each demo's folder, you will find a document that links to it.
+
 ➡ Follow us on [Twitter](https://twitter.com/NathanGDQuest) and [YouTube](https://www.youtube.com/c/gdquest/) for free game creation tutorials, tips, and news! Get one of our [Godot game creation courses](https://gdquest.mavenseed.com/) to support our work on Free Software.
 
 ## Licenses
